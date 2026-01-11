@@ -12,7 +12,9 @@ import {
   NavigationMenuTrigger,
 } from "@/components/ui/navigation-menu";
 
-const moralTechLogo = '/lovable-uploads/f18f2bae-90fe-4c67-a51f-2f8c9a6824ec.png';
+import somsuiteLogo from '@/assets/somsuite.png';
+
+const moralTechLogo = somsuiteLogo;
 
 const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);

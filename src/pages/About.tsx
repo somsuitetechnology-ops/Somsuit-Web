@@ -2,7 +2,9 @@ import { Card } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Link } from 'react-router-dom';
 import { Target, Eye, Award, Users, ArrowRight } from 'lucide-react';
-const moralTechLogo = '/lovable-uploads/f18f2bae-90fe-4c67-a51f-2f8c9a6824ec.png';
+import somsuiteLogo from '@/assets/somsuite.png';
+
+const moralTechLogo = somsuiteLogo;
 
 const About = () => {
   const values = [
