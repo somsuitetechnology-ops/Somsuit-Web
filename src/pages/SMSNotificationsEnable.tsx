@@ -44,7 +44,7 @@ const SMSNotificationsEnable = () => {
             </h1>
             
             <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto mb-8">
-              Enable SMS notifications to receive instant alerts when new customer orders are created in MoralERP. 
+              Enable SMS notifications to receive instant alerts when new customer orders are created in Asuit ERP. 
               Stay informed and respond to orders faster.
             </p>
 
@@ -175,7 +175,7 @@ const SMSNotificationsEnable = () => {
               Ready to Get Started?
             </h2>
             <p className="text-muted-foreground mb-8">
-              Download our complete guide to learn how to enable SMS notifications in your MoralERP account.
+              Download our complete guide to learn how to enable SMS notifications in your Asuit ERP account.
             </p>
             
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -199,7 +199,7 @@ const SMSNotificationsEnable = () => {
             </div>
             
             <p className="text-xs text-muted-foreground mt-8">
-              © 2024 MoralERP. All rights reserved.
+              © 2024 Asuit ERP. All rights reserved.
             </p>
           </div>
         </div>

@@ -59,7 +59,7 @@ const Navigation = () => {
   ];
 
   const productsDropdown = [
-    { name: 'MoralERP', href: '/products/flowerp' },
+    { name: 'Asuit ERP', href: '/products/flowerp' },
     { name: 'Hardware Solutions', href: '/products/hardware' },
     { name: 'Software Licensing', href: '/products/software' },
     { name: 'Custom Applications', href: '/products/custom' },

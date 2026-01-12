@@ -9,7 +9,7 @@ import About from "./pages/About";
 import Services from "./pages/Services";
 import Projects from "./pages/Projects";
 import Contact from "./pages/Contact";
-import MoralERP from "./pages/FlowERP";
+import AsuitERP from "./pages/FlowERP";
 import Partners from "./pages/Partners";
 import Clients from "./pages/Clients";
 import Blog from "./pages/Blog";
@@ -54,7 +54,7 @@ const App = () => (
             <Route path="/services/integration" element={<Integration />} />
             <Route path="/projects" element={<Projects />} />
             <Route path="/contact" element={<Contact />} />
-            <Route path="/products/flowerp" element={<MoralERP />} />
+            <Route path="/products/flowerp" element={<AsuitERP />} />
             <Route path="/products/hardware" element={<Hardware />} />
             <Route path="/products/software" element={<Software />} />
             <Route path="/products/custom" element={<Custom />} />

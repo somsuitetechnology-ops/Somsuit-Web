@@ -25,7 +25,7 @@ import salesDashboard from '@/assets/flowerp-sales-dashboard.png';
 import accountingMenu from '@/assets/flowerp-accounting-menu.png';
 import hrmMenu from '@/assets/flowerp-hrm-menu.png';
 
-const MoralERP = () => {
+const AsuitERP = () => {
   const coreModules = [
     {
       icon: ShoppingCart,
@@ -156,7 +156,7 @@ const MoralERP = () => {
           </div>
           
           <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold mb-6 animate-fade-in">
-            <span className="text-glow">MoralERP</span>
+            <span className="text-glow">Asuit ERP</span>
           </h1>
           
           <p className="text-xl md:text-2xl text-muted-foreground max-w-3xl mx-auto mb-8 animate-fade-in">
@@ -164,7 +164,7 @@ const MoralERP = () => {
           </p>
 
           <p className="text-lg text-muted-foreground max-w-4xl mx-auto mb-12 animate-fade-in">
-            MoralERP integrates sales, accounting, inventory, HR, and reporting into one powerful platform. 
+            Asuit ERP integrates sales, accounting, inventory, HR, and reporting into one powerful platform. 
             Streamline your operations, boost productivity, and scale your business with confidence.
           </p>
 
@@ -285,7 +285,7 @@ const MoralERP = () => {
           <div className="text-center mb-16">
             <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-accent/10 border border-accent/20 text-accent mb-6">
               <CheckCircle2 className="w-4 h-4" />
-              <span className="text-sm font-medium">Why Choose MoralERP</span>
+              <span className="text-sm font-medium">Why Choose Asuit ERP</span>
             </div>
             <h2 className="text-4xl md:text-5xl font-bold mb-6">
               Key Features & Benefits
@@ -331,7 +331,7 @@ const MoralERP = () => {
           </h2>
 
           <p className="text-xl text-muted-foreground mb-12 max-w-2xl mx-auto">
-            Join hundreds of businesses already using MoralERP to streamline operations, 
+            Join hundreds of businesses already using Asuit ERP to streamline operations, 
             increase efficiency, and drive growth. Get a personalized demo today.
           </p>
 
@@ -354,4 +354,4 @@ const MoralERP = () => {
   );
 };
 
-export default MoralERP;
+export default AsuitERP;
