@@ -9,7 +9,7 @@ const Clients = () => {
       name: "Ahmed Hassan",
       company: "Tech Solutions Ltd",
       role: "CTO",
-      text: "Moral Technology transformed our IT infrastructure. Their expertise and dedication are unmatched.",
+      text: "Somsuite Technology transformed our IT infrastructure. Their expertise and dedication are unmatched.",
       rating: 5
     },
     {
@@ -23,7 +23,7 @@ const Clients = () => {
       name: "Mohamed Osman",
       company: "Finance Corp",
       role: "Operations Manager",
-      text: "Professional, reliable, and innovative. Moral Technology is our trusted IT partner.",
+      text: "Professional, reliable, and innovative. Somsuite Technology is our trusted IT partner.",
       rating: 5
     },
   ];

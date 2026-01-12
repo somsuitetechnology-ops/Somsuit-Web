@@ -7,7 +7,7 @@ const Team = () => {
       name: "Ahmed Hassan",
       role: "Chief Executive Officer",
       image: "https://images.unsplash.com/photo-1560250097-0b93528c311a?w=400&h=400&fit=crop",
-      bio: "Leading Moral Technology with over 15 years of experience in IT services and business strategy.",
+      bio: "Leading Somsuite Technology with over 15 years of experience in IT services and business strategy.",
       linkedin: "#"
     },
     {

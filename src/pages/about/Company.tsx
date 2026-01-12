@@ -31,7 +31,7 @@ const Company = () => {
                 Our <span className="text-accent">Story</span>
               </h2>
               <p className="text-foreground-muted text-lg leading-relaxed mb-6">
-                Moral Technology was founded with a clear vision: to make enterprise-level technology solutions accessible to businesses of all sizes. We started as a small team of passionate IT professionals who believed that exceptional technology services should not come with prohibitive price tags.
+                Somsuite Technology was founded with a clear vision: to make enterprise-level technology solutions accessible to businesses of all sizes. We started as a small team of passionate IT professionals who believed that exceptional technology services should not come with prohibitive price tags.
               </p>
               <p className="text-foreground-muted text-lg leading-relaxed mb-6">
                 Over the years, we have grown into a trusted technology partner for over 25 businesses across various industries. Our journey has been marked by continuous innovation, unwavering commitment to quality, and a deep understanding of our clients' needs.

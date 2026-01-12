@@ -2,13 +2,13 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Moral Technology Design System - Futuristic Dark Mode */
+/* Somsuite Technology Design System - Futuristic Dark Mode */
 
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap');
 
 @layer base {
   :root {
-    /* Brand Colors - Moral Technology */
+    /* Brand Colors - Somsuite Technology */
     --brand-primary: 225 43% 11%; /* #111725 dark navy */
     --brand-accent: 75 98% 61%; /* #d6fe5c lime green */
     --brand-accent-muted: 75 80% 50%;

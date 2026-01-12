@@ -82,13 +82,13 @@ const Projects = () => {
     {
       name: "Ahmed Hassan",
       role: "Director, SIU Alumni Association",
-      content: "Moral Technology delivered exceptional branding that perfectly captured our vision. The logo and brand identity have helped us build a stronger connection with our alumni network.",
+      content: "Somsuite Technology delivered exceptional branding that perfectly captured our vision. The logo and brand identity have helped us build a stronger connection with our alumni network.",
       rating: 5
     },
     {
       name: "Fatima Ali",
       role: "CEO, Baraarug Consultant",
-      content: "The team at Moral Technology exceeded our expectations. From branding to web development, they provided comprehensive solutions that transformed our business presence.",
+      content: "The team at Somsuite Technology exceeded our expectations. From branding to web development, they provided comprehensive solutions that transformed our business presence.",
       rating: 5
     },
     {

@@ -89,7 +89,7 @@ const Careers = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold mb-4">
-              Why Work at <span className="text-accent">Moral Technology</span>
+              Why Work at <span className="text-accent">Somsuite Technology</span>
             </h2>
             <p className="text-xl text-foreground-muted max-w-3xl mx-auto">
               Join a team that is shaping the future of technology services
@@ -198,7 +198,7 @@ const Careers = () => {
               {
                 step: "4",
                 title: "Offer",
-                description: "Receive an offer and join the Moral Technology family"
+                description: "Receive an offer and join the Somsuite Technology family"
               }
             ].map((process, i) => (
               <Card key={i} className="p-8 text-center relative overflow-hidden group hover:border-accent transition-all">
