@@ -152,7 +152,7 @@ const Home = () => {
           </h1>
           
           <p className="text-xl md:text-2xl text-white/80 mb-12 max-w-4xl mx-auto leading-relaxed">
-            Empowering businesses through cutting-edge technology, innovative solutions, and exceptional IT services. Transform your digital presence with Moral Technology.
+            Empowering businesses through cutting-edge technology, innovative solutions, and exceptional IT services. Transform your digital presence with Somsuite Technology.
           </p>
           
           <div className="flex flex-col sm:flex-row gap-6 justify-center items-center mb-16">
@@ -367,11 +367,11 @@ const Home = () => {
               </div>
               
               <h2 className="text-4xl md:text-5xl font-bold mb-6">
-                Moral <span className="text-accent">Technology</span>
+                Somsuite <span className="text-accent">Technology</span>
               </h2>
               
               <p className="text-foreground-muted text-lg leading-relaxed mb-6">
-                Moral Technology is an IT services company specializing in IT management, IT operations, and IT professional services. Moral Technology was founded with a mission to provide innovative technology solutions that empower businesses to thrive in the digital age.
+                Somsuite Technology is an IT services company specializing in IT management, IT operations, and IT professional services. Somsuite Technology was founded with a mission to provide innovative technology solutions that empower businesses to thrive in the digital age.
               </p>
               
               <p className="text-foreground-muted text-lg leading-relaxed mb-8">

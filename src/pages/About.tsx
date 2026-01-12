@@ -44,10 +44,10 @@ const About = () => {
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-20">
         <div className="text-center mb-16">
           <div className="float mb-8">
-            <img src={moralTechLogo} alt="Moral Technology" className="h-16 w-auto mx-auto opacity-20" />
+            <img src={moralTechLogo} alt="Somsuite Technology" className="h-16 w-auto mx-auto opacity-20" />
           </div>
           <h1 className="text-4xl md:text-5xl font-bold mb-6">
-            About <span className="text-accent">Moral Technology</span>
+            About <span className="text-accent">Somsuite Technology</span>
           </h1>
           <p className="text-xl text-foreground-muted max-w-3xl mx-auto">
             We are a forward-thinking technology company dedicated to empowering businesses 

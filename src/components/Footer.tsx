@@ -14,7 +14,7 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           {/* Company Info */}
           <div className="col-span-1 md:col-span-2">
-            <img src={moralTechLogo} alt="Moral Technology" className="h-12 w-auto mb-4" />
+            <img src={moralTechLogo} alt="Somsuite Technology" className="h-12 w-auto mb-4" />
             <p className="text-foreground-muted mb-4 max-w-md">
               Empowering businesses through innovative technology solutions. We specialize in 
               creating digital experiences that drive growth and success.
@@ -77,7 +77,7 @@ const Footer = () => {
 
         <div className="border-t border-card-border mt-8 pt-8 text-center">
           <p className="text-foreground-muted">
-            © {currentYear} Moral Technology. All rights reserved.
+            © {currentYear} Somsuite Technology. All rights reserved.
           </p>
         </div>
       </div>

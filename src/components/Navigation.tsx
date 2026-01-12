@@ -80,7 +80,7 @@ const Navigation = () => {
           <Link to="/" className="flex items-center space-x-3 hover:opacity-80 transition-opacity flex-shrink-0">
             <img 
               src={moralTechLogo} 
-              alt="Moral Technology" 
+              alt="Somsuite Technology" 
               className="h-16 w-auto object-contain"
             />
           </Link>
