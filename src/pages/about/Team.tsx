@@ -110,7 +110,7 @@ const Team = () => {
                       <Linkedin className="w-5 h-5 text-accent" />
                     </a>
                     <a 
-                      href="mailto:info@moraltech.io"
+                      href="mailto:info@somsuite.tech"
                       className="w-10 h-10 bg-accent/10 rounded-full flex items-center justify-center hover:bg-accent/20 transition-colors"
                     >
                       <Mail className="w-5 h-5 text-accent" />

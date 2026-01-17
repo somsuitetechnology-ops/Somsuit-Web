@@ -47,9 +47,9 @@ const Contact = () => {
   const contactInfo = [{
     icon: Mail,
     title: "Email Us",
-    content: "info@moraltech.io",
+    content: "info@somsuite.tech",
     description: "Send us an email anytime!",
-    action: "mailto:info@moraltech.io"
+    action: "mailto:info@somsuite.tech"
   }, {
     icon: Phone,
     title: "Call Us",
@@ -221,7 +221,7 @@ const Contact = () => {
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button variant="accent" size="lg" asChild>
-              <a href="mailto:info@moraltech.io">
+              <a href="mailto:info@somsuite.tech">
                 <Mail className="mr-2 w-5 h-5" />
                 Email Us Directly
               </a>
