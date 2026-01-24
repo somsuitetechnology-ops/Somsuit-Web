@@ -13,8 +13,7 @@ const sonakImage = '/lovable-uploads/bdcc3514-02c7-4745-b2c4-681b44722010.png';
 const hugodressImage = '/lovable-uploads/12a4d78a-a084-48aa-80d6-f4d9e1bca47b.png';
 const sohaAwardsImage = '/lovable-uploads/ab299ea0-be47-45f4-a3ad-a8e6644ad7db.png';
 const somsuiteImage = '/ESS.jpg.jpeg';
-const jjFishImage = '/jj.png';
-const jjFishImage = '/jj.png';
+const jjFishImage = '/j.jpg.jpeg';
 
 const Home = () => {
   const [erpDialogOpen, setErpDialogOpen] = useState(false);
@@ -560,11 +559,11 @@ const Home = () => {
 
             {/* Jj-fish Account System */}
             <Card className="group overflow-hidden hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 border-2 border-transparent hover:border-accent/30">
-              <div className="aspect-video relative overflow-hidden bg-gradient-to-br from-background to-background-tertiary">
+              <div className="aspect-video relative overflow-hidden bg-white p-4">
                 <img 
                   src={jjFishImage} 
                   alt="Jj-fish Account System"
-                  className="w-full h-full object-cover transition-all duration-700 group-hover:scale-110"
+                  className="w-full h-full object-contain object-center transition-all duration-700 group-hover:scale-105"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-background via-background/60 to-transparent opacity-70 group-hover:opacity-50 transition-opacity" />
                 
@@ -707,59 +706,6 @@ const Home = () => {
                 <div className="flex items-center justify-between pt-4 border-t border-border/50">
                   <Button variant="default" size="sm" asChild className="bg-accent hover:bg-accent-hover group/btn">
                     <a href="https://bcf.so" target="_blank" rel="noopener noreferrer">
-                      <ExternalLink className="w-4 h-4 mr-2" />
-                      Visit Site
-                      <ArrowRight className="w-4 h-4 ml-1 group-hover/btn:translate-x-1 transition-transform" />
-                    </a>
-                  </Button>
-                  <span className="text-sm text-foreground-muted font-medium">Website</span>
-                </div>
-              </div>
-            </Card>
-
-            {/* Hugodress.com */}
-            <Card className="group overflow-hidden hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 border-2 border-transparent hover:border-accent/30">
-              <div className="aspect-video relative overflow-hidden bg-gradient-to-br from-background to-background-tertiary">
-                <img 
-                  src={hugodressImage} 
-                  alt="Hugodress E-commerce"
-                  className="w-full h-full object-cover transition-all duration-700 group-hover:scale-110"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-background via-background/60 to-transparent opacity-70 group-hover:opacity-50 transition-opacity" />
-                
-                <div className="absolute top-4 left-4">
-                  <div className="w-12 h-12 bg-accent/90 backdrop-blur-sm rounded-full flex items-center justify-center shadow-lg">
-                    <ShoppingCart className="w-6 h-6 text-white" />
-                  </div>
-                </div>
-
-                <div className="absolute top-4 right-4">
-                  <Badge className="bg-background/80 backdrop-blur-sm text-accent border-accent/20 font-semibold px-3 py-1">
-                    E-commerce
-                  </Badge>
-                </div>
-
-                <div className="absolute bottom-4 left-4 right-4">
-                  <h3 className="text-2xl font-bold text-white drop-shadow-lg">Hugodress.com</h3>
-                </div>
-              </div>
-              
-              <div className="p-6 space-y-4">
-                <div className="flex flex-wrap gap-2">
-                  {["E-commerce", "Fashion", "Online Store", "Payment Integration"].map((tag, i) => (
-                    <Badge key={i} variant="outline" className="text-xs bg-accent/5 border-accent/20">
-                      {tag}
-                    </Badge>
-                  ))}
-                </div>
-                
-                <p className="text-foreground-muted leading-relaxed">
-                  Modern e-commerce platform for fashion retail, featuring responsive design, secure payment integration, and intuitive user experience for seamless online shopping.
-                </p>
-                
-                <div className="flex items-center justify-between pt-4 border-t border-border/50">
-                  <Button variant="default" size="sm" asChild className="bg-accent hover:bg-accent-hover group/btn">
-                    <a href="https://hugodress.com" target="_blank" rel="noopener noreferrer">
                       <ExternalLink className="w-4 h-4 mr-2" />
                       Visit Site
                       <ArrowRight className="w-4 h-4 ml-1 group-hover/btn:translate-x-1 transition-transform" />
