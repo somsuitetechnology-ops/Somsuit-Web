@@ -28,6 +28,7 @@ import Custom from "./pages/products/Custom";
 import AI from "./pages/products/AI";
 import SMSNotifications from "./pages/SMSNotifications";
 import SMSNotificationsEnable from "./pages/SMSNotificationsEnable";
+import QRCodeGenerator from "./pages/QRCodeGenerator";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -64,6 +65,7 @@ const App = () => (
             <Route path="/blog" element={<Blog />} />
             <Route path="/sms-notifications" element={<SMSNotifications />} />
             <Route path="/sms-notifications-enable" element={<SMSNotificationsEnable />} />
+            <Route path="/qrcode-generator" element={<QRCodeGenerator />} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
           </Routes>

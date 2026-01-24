@@ -1,16 +1,109 @@
+import { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Card } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
+import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from '@/components/ui/dialog';
+import { Tabs, TabsList, TabsTrigger, TabsContent } from '@/components/ui/tabs';
 import { Link } from 'react-router-dom';
-import { ArrowRight, Network, Cloud, Shield, Cpu, Wrench, Globe, ExternalLink, Users, BookOpen, ShoppingCart, Heart } from 'lucide-react';
+import { ArrowRight, Network, Cloud, Shield, Cpu, Wrench, Globe, ExternalLink, Users, BookOpen, ShoppingCart, Heart, Database, FileText, Handshake, Factory, Package, Wallet, BarChart3, Clock, Calculator, CreditCard, Receipt, UserCog, Zap } from 'lucide-react';
 
 const baraarugImage = '/lovable-uploads/584c88fd-31cf-4435-990e-889f5cfafa3f.png';
 const siuAlumniImage = '/lovable-uploads/0c2a73d8-0b86-428f-ac5d-d74aa65c1d1d.png';
 const sonakImage = '/lovable-uploads/bdcc3514-02c7-4745-b2c4-681b44722010.png';
 const hugodressImage = '/lovable-uploads/12a4d78a-a084-48aa-80d6-f4d9e1bca47b.png';
 const sohaAwardsImage = '/lovable-uploads/ab299ea0-be47-45f4-a3ad-a8e6644ad7db.png';
+const somsuiteImage = '/ESS.jpg.jpeg';
 
 const Home = () => {
+  const [erpDialogOpen, setErpDialogOpen] = useState(false);
+
+  const erpModules = [
+    {
+      icon: ShoppingCart,
+      title: 'Purchasing',
+      description: 'Complete procurement management with vendor tracking, purchase orders, and automated workflows.',
+      color: 'from-blue-500 to-blue-600'
+    },
+    {
+      icon: FileText,
+      title: 'Customer Web Portal',
+      description: 'Self-service portal for customers to view orders, invoices, and track deliveries in real-time.',
+      color: 'from-purple-500 to-purple-600'
+    },
+    {
+      icon: Handshake,
+      title: 'CRM & Sales',
+      description: 'Powerful customer relationship management with sales pipeline, lead tracking, and opportunity management.',
+      color: 'from-green-500 to-green-600'
+    },
+    {
+      icon: Factory,
+      title: 'Manufacturing',
+      description: 'End-to-end manufacturing management including BOMs, work orders, and production scheduling.',
+      color: 'from-orange-500 to-orange-600'
+    },
+    {
+      icon: Package,
+      title: 'Distribution',
+      description: 'Streamline your distribution with warehouse management, shipping integration, and route optimization.',
+      color: 'from-cyan-500 to-cyan-600'
+    },
+    {
+      icon: Wallet,
+      title: 'Finance',
+      description: 'Complete financial management with general ledger, budgeting, and financial reporting.',
+      color: 'from-indigo-500 to-indigo-600'
+    },
+    {
+      icon: BarChart3,
+      title: 'Dashboards',
+      description: 'Real-time business intelligence with customizable dashboards and advanced analytics.',
+      color: 'from-pink-500 to-pink-600'
+    },
+    {
+      icon: Clock,
+      title: 'Time & Projects',
+      description: 'Project management with time tracking, resource allocation, and project accounting.',
+      color: 'from-yellow-500 to-yellow-600'
+    },
+    {
+      icon: Calculator,
+      title: 'Accounting',
+      description: 'Full-featured accounting system with chart of accounts, journal entries, and financial statements.',
+      color: 'from-red-500 to-red-600'
+    },
+    {
+      icon: CreditCard,
+      title: 'POS',
+      description: 'Point of sale system with inventory integration, multiple payment methods, and receipt printing.',
+      color: 'from-teal-500 to-teal-600'
+    },
+    {
+      icon: Receipt,
+      title: 'Billing',
+      description: 'Automated billing and invoicing with recurring billing, payment tracking, and collections.',
+      color: 'from-violet-500 to-violet-600'
+    },
+    {
+      icon: Database,
+      title: 'Inventory',
+      description: 'Advanced inventory management with multi-location tracking, serial numbers, and lot control.',
+      color: 'from-emerald-500 to-emerald-600'
+    },
+    {
+      icon: Users,
+      title: 'CRM',
+      description: 'Customer relationship management with contact management, activity tracking, and email integration.',
+      color: 'from-sky-500 to-sky-600'
+    },
+    {
+      icon: UserCog,
+      title: 'HRM',
+      description: 'Human resource management with employee records, payroll, attendance, and performance reviews.',
+      color: 'from-rose-500 to-rose-600'
+    }
+  ];
+
   return (
     <div className="overflow-hidden">
       {/* Hero Section */}
@@ -407,6 +500,62 @@ const Home = () => {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
+            {/* Somsuite ERP */}
+            <Card className="group overflow-hidden hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 border-2 border-transparent hover:border-accent/30">
+              <div className="aspect-video relative overflow-hidden bg-gradient-to-br from-background to-background-tertiary">
+                <img 
+                  src={somsuiteImage} 
+                  alt="Somsuite ERP System"
+                  className="w-full h-full object-cover transition-all duration-700 group-hover:scale-110"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-background via-background/60 to-transparent opacity-70 group-hover:opacity-50 transition-opacity" />
+                
+                <div className="absolute top-4 left-4">
+                  <div className="w-12 h-12 bg-accent/90 backdrop-blur-sm rounded-full flex items-center justify-center shadow-lg">
+                    <Database className="w-6 h-6 text-white" />
+                  </div>
+                </div>
+
+                <div className="absolute top-4 right-4">
+                  <Badge className="bg-background/80 backdrop-blur-sm text-accent border-accent/20 font-semibold px-3 py-1">
+                    ERP System
+                  </Badge>
+                </div>
+
+                <div className="absolute bottom-4 left-4 right-4">
+                  <h3 className="text-2xl font-bold text-white drop-shadow-lg">Somsuite ERP</h3>
+                </div>
+              </div>
+              
+              <div className="p-6 space-y-4">
+                <div className="flex flex-wrap gap-2">
+                  {["ERP", "Enterprise", "Business Management", "Cloud"].map((tag, i) => (
+                    <Badge key={i} variant="outline" className="text-xs bg-accent/5 border-accent/20">
+                      {tag}
+                    </Badge>
+                  ))}
+                </div>
+                
+                <p className="text-foreground-muted leading-relaxed">
+                  Comprehensive Enterprise Resource Planning system designed to streamline business operations, manage resources, and provide real-time insights for informed decision-making across all departments.
+                </p>
+                
+                <div className="flex items-center justify-between pt-4 border-t border-border/50">
+                  <Button 
+                    variant="default" 
+                    size="sm" 
+                    onClick={() => setErpDialogOpen(true)}
+                    className="bg-accent hover:bg-accent-hover group/btn"
+                  >
+                    <Zap className="w-4 h-4 mr-2" />
+                    Explore Modules
+                    <ArrowRight className="w-4 h-4 ml-1 group-hover/btn:translate-x-1 transition-transform" />
+                  </Button>
+                  <span className="text-sm text-foreground-muted font-medium">ERP System</span>
+                </div>
+              </div>
+            </Card>
+
             {/* SIU Alumni Association */}
             <Card className="group overflow-hidden hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 border-2 border-transparent hover:border-accent/30">
               <div className="aspect-video relative overflow-hidden bg-gradient-to-br from-background to-background-tertiary">
@@ -556,59 +705,6 @@ const Home = () => {
                 <div className="flex items-center justify-between pt-4 border-t border-border/50">
                   <Button variant="default" size="sm" asChild className="bg-accent hover:bg-accent-hover group/btn">
                     <a href="https://hugodress.com" target="_blank" rel="noopener noreferrer">
-                      <ExternalLink className="w-4 h-4 mr-2" />
-                      Visit Site
-                      <ArrowRight className="w-4 h-4 ml-1 group-hover/btn:translate-x-1 transition-transform" />
-                    </a>
-                  </Button>
-                  <span className="text-sm text-foreground-muted font-medium">Website</span>
-                </div>
-              </div>
-            </Card>
-
-            {/* Sonak.so */}
-            <Card className="group overflow-hidden hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 border-2 border-transparent hover:border-accent/30">
-              <div className="aspect-video relative overflow-hidden bg-gradient-to-br from-background to-background-tertiary">
-                <img 
-                  src={sonakImage} 
-                  alt="Sonak Learning Platform"
-                  className="w-full h-full object-cover transition-all duration-700 group-hover:scale-110"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-background via-background/60 to-transparent opacity-70 group-hover:opacity-50 transition-opacity" />
-                
-                <div className="absolute top-4 left-4">
-                  <div className="w-12 h-12 bg-accent/90 backdrop-blur-sm rounded-full flex items-center justify-center shadow-lg">
-                    <BookOpen className="w-6 h-6 text-white" />
-                  </div>
-                </div>
-
-                <div className="absolute top-4 right-4">
-                  <Badge className="bg-background/80 backdrop-blur-sm text-accent border-accent/20 font-semibold px-3 py-1">
-                    Education
-                  </Badge>
-                </div>
-
-                <div className="absolute bottom-4 left-4 right-4">
-                  <h3 className="text-2xl font-bold text-white drop-shadow-lg">Sonak.so</h3>
-                </div>
-              </div>
-              
-              <div className="p-6 space-y-4">
-                <div className="flex flex-wrap gap-2">
-                  {["Education", "Technology", "Learning Platform", "E-learning"].map((tag, i) => (
-                    <Badge key={i} variant="outline" className="text-xs bg-accent/5 border-accent/20">
-                      {tag}
-                    </Badge>
-                  ))}
-                </div>
-                
-                <p className="text-foreground-muted leading-relaxed">
-                  Innovative technology learning platform designed to make programming and tech skills accessible to Somali-speaking learners worldwide through interactive courses.
-                </p>
-                
-                <div className="flex items-center justify-between pt-4 border-t border-border/50">
-                  <Button variant="default" size="sm" asChild className="bg-accent hover:bg-accent-hover group/btn">
-                    <a href="https://sonak.so" target="_blank" rel="noopener noreferrer">
                       <ExternalLink className="w-4 h-4 mr-2" />
                       Visit Site
                       <ArrowRight className="w-4 h-4 ml-1 group-hover/btn:translate-x-1 transition-transform" />
@@ -835,6 +931,139 @@ const Home = () => {
           </Button>
         </div>
       </section>
+
+      {/* Somsuite ERP Dialog */}
+      <Dialog open={erpDialogOpen} onOpenChange={setErpDialogOpen}>
+        <DialogContent className="max-w-6xl max-h-[90vh] overflow-hidden p-0 gap-0 bg-gradient-to-br from-background via-background-secondary to-background">
+          <div className="relative overflow-hidden">
+            {/* Header with gradient */}
+            <DialogHeader className="p-6 pb-4 bg-gradient-to-r from-accent/10 via-primary/5 to-accent/10 border-b border-accent/20">
+              <div className="flex items-center gap-4">
+                <div className="w-16 h-16 bg-gradient-to-br from-accent to-accent/70 rounded-2xl flex items-center justify-center shadow-lg">
+                  <Database className="w-8 h-8 text-white" />
+                </div>
+                <div className="flex-1">
+                  <DialogTitle className="text-3xl font-bold text-foreground mb-2">
+                    Somsuite ERP System
+                  </DialogTitle>
+                  <DialogDescription className="text-base text-foreground-muted">
+                    Comprehensive Enterprise Resource Planning with {erpModules.length} integrated modules
+                  </DialogDescription>
+                </div>
+              </div>
+            </DialogHeader>
+
+            {/* Tabs Container */}
+            <div className="p-6 overflow-y-auto max-h-[calc(90vh-180px)]">
+              <Tabs defaultValue={erpModules[0].title.toLowerCase().replace(/\s+/g, '-')} className="w-full">
+                <TabsList className="grid w-full grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 h-auto gap-2 p-2 bg-background-secondary/50 backdrop-blur-sm border border-accent/10 mb-6 overflow-x-auto">
+                  {erpModules.map((module) => {
+                    const ModuleIcon = module.icon;
+                    const tabValue = module.title.toLowerCase().replace(/\s+/g, '-');
+                    return (
+                      <TabsTrigger
+                        key={module.title}
+                        value={tabValue}
+                        className="flex flex-col items-center gap-2 px-4 py-3 h-auto data-[state=active]:bg-accent/20 data-[state=active]:text-accent data-[state=active]:border-accent/50 border border-transparent rounded-lg transition-all hover:bg-accent/10"
+                      >
+                        <ModuleIcon className="w-5 h-5" />
+                        <span className="text-xs font-medium text-center leading-tight">{module.title}</span>
+                      </TabsTrigger>
+                    );
+                  })}
+                </TabsList>
+
+                {/* Tab Contents */}
+                <div className="space-y-4">
+                  {erpModules.map((module) => {
+                    const ModuleIcon = module.icon;
+                    const tabValue = module.title.toLowerCase().replace(/\s+/g, '-');
+                    return (
+                      <TabsContent
+                        key={module.title}
+                        value={tabValue}
+                        className="mt-0 data-[state=active]:animate-in data-[state=active]:fade-in-0 data-[state=active]:zoom-in-95"
+                      >
+                        <Card className="border-2 border-accent/20 bg-gradient-to-br from-card to-card/50 overflow-hidden group hover:border-accent/40 transition-all duration-300">
+                          <div className="p-8">
+                            <div className="flex flex-col md:flex-row gap-6 items-start">
+                              {/* Icon Section */}
+                              <div className="flex-shrink-0">
+                                <div className={`w-20 h-20 rounded-2xl bg-gradient-to-br ${module.color} flex items-center justify-center shadow-xl group-hover:scale-110 transition-transform duration-300`}>
+                                  <ModuleIcon className="w-10 h-10 text-white" />
+                                </div>
+                              </div>
+
+                              {/* Content Section */}
+                              <div className="flex-1 space-y-4">
+                                <div>
+                                  <h3 className="text-2xl font-bold text-foreground mb-2 group-hover:text-accent transition-colors">
+                                    {module.title}
+                                  </h3>
+                                  <p className="text-foreground-muted text-lg leading-relaxed">
+                                    {module.description}
+                                  </p>
+                                </div>
+
+                                {/* Features Grid */}
+                                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mt-6 pt-6 border-t border-border/50">
+                                  <div className="flex items-center gap-2 text-sm text-foreground-muted">
+                                    <div className="w-1.5 h-1.5 rounded-full bg-accent" />
+                                    <span>Real-time synchronization</span>
+                                  </div>
+                                  <div className="flex items-center gap-2 text-sm text-foreground-muted">
+                                    <div className="w-1.5 h-1.5 rounded-full bg-accent" />
+                                    <span>Role-based access control</span>
+                                  </div>
+                                  <div className="flex items-center gap-2 text-sm text-foreground-muted">
+                                    <div className="w-1.5 h-1.5 rounded-full bg-accent" />
+                                    <span>Advanced reporting</span>
+                                  </div>
+                                  <div className="flex items-center gap-2 text-sm text-foreground-muted">
+                                    <div className="w-1.5 h-1.5 rounded-full bg-accent" />
+                                    <span>Mobile app access</span>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </Card>
+                      </TabsContent>
+                    );
+                  })}
+                </div>
+              </Tabs>
+            </div>
+
+            {/* Footer */}
+            <div className="p-6 pt-4 border-t border-accent/20 bg-background-secondary/30 backdrop-blur-sm flex flex-col sm:flex-row items-center justify-between gap-4">
+              <div className="flex items-center gap-2 text-sm text-foreground-muted">
+                <Zap className="w-4 h-4 text-accent" />
+                <span>All modules are fully integrated and cloud-based</span>
+              </div>
+              <div className="flex gap-3">
+                <Button
+                  variant="outline"
+                  onClick={() => setErpDialogOpen(false)}
+                  className="border-accent/30 text-accent hover:bg-accent/10"
+                >
+                  Close
+                </Button>
+                <Button
+                  variant="default"
+                  asChild
+                  className="bg-accent hover:bg-accent-hover"
+                >
+                  <Link to="/products/flowerp" onClick={() => setErpDialogOpen(false)}>
+                    View Full Details
+                    <ArrowRight className="ml-2 w-4 h-4" />
+                  </Link>
+                </Button>
+              </div>
+            </div>
+          </div>
+        </DialogContent>
+      </Dialog>
     </div>
   );
 };

@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QR Code Generator - Somsuite.tech</title>
+    <script src="https://cdn.jsdelivr.net/npm/qrcode@1.5.3/build/qrcode.min.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+        
+        .container {
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            max-width: 600px;
+            width: 100%;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+        }
+        
+        h1 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 10px;
+            font-size: 2rem;
+        }
+        
+        .subtitle {
+            text-align: center;
+            color: #666;
+            margin-bottom: 30px;
+            font-size: 0.9rem;
+        }
+        
+        .input-group {
+            margin-bottom: 20px;
+        }
+        
+        label {
+            display: block;
+            margin-bottom: 8px;
+            color: #333;
+            font-weight: 500;
+        }
+        
+        input[type="text"] {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            font-size: 16px;
+            transition: border-color 0.3s;
+        }
+        
+        input[type="text"]:focus {
+            outline: none;
+            border-color: #667eea;
+        }
+        
+        .size-control {
+            margin-bottom: 20px;
+        }
+        
+        .size-control label {
+            display: block;
+            margin-bottom: 8px;
+        }
+        
+        input[type="range"] {
+            width: 100%;
+            height: 8px;
+            border-radius: 5px;
+            background: #e0e0e0;
+            outline: none;
+            -webkit-appearance: none;
+        }
+        
+        input[type="range"]::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: #667eea;
+            cursor: pointer;
+        }
+        
+        input[type="range"]::-moz-range-thumb {
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: #667eea;
+            cursor: pointer;
+            border: none;
+        }
+        
+        .size-value {
+            text-align: center;
+            color: #667eea;
+            font-weight: 600;
+            margin-top: 5px;
+        }
+        
+        .qr-display {
+            text-align: center;
+            margin: 30px 0;
+            padding: 20px;
+            background: #f8f9fa;
+            border-radius: 12px;
+        }
+        
+        #qrcode {
+            display: inline-block;
+            padding: 20px;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .buttons {
+            display: flex;
+            gap: 10px;
+            margin-top: 20px;
+        }
+        
+        button {
+            flex: 1;
+            padding: 12px 24px;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .btn-primary {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+        }
+        
+        .btn-secondary {
+            background: #f0f0f0;
+            color: #333;
+        }
+        
+        .btn-secondary:hover {
+            background: #e0e0e0;
+        }
+        
+        .quick-links {
+            margin-top: 30px;
+            padding-top: 30px;
+            border-top: 2px solid #e0e0e0;
+        }
+        
+        .quick-links h3 {
+            text-align: center;
+            margin-bottom: 15px;
+            color: #333;
+        }
+        
+        .quick-buttons {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 10px;
+        }
+        
+        .quick-btn {
+            padding: 10px;
+            background: #f8f9fa;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 0.85rem;
+            transition: all 0.3s;
+        }
+        
+        .quick-btn:hover {
+            background: #667eea;
+            color: white;
+            border-color: #667eea;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>QR Code Generator</h1>
+        <p class="subtitle">Generate QR codes for somsuite.tech</p>
+        
+        <div class="input-group">
+            <label for="urlInput">URL or Text:</label>
+            <input type="text" id="urlInput" value="https://somsuite.tech" placeholder="Enter URL or text">
+        </div>
+        
+        <div class="size-control">
+            <label for="sizeInput">Size: <span class="size-value" id="sizeValue">256</span>px</label>
+            <input type="range" id="sizeInput" min="128" max="512" step="32" value="256">
+        </div>
+        
+        <div class="qr-display">
+            <div id="qrcode"></div>
+        </div>
+        
+        <div class="buttons">
+            <button class="btn-primary" onclick="downloadQR()">Download QR Code</button>
+            <button class="btn-secondary" onclick="generateQR()">Refresh</button>
+        </div>
+        
+        <div class="quick-links">
+            <h3>Quick Generate</h3>
+            <div class="quick-buttons">
+                <button class="quick-btn" onclick="setQuickURL('https://somsuite.tech')">Homepage</button>
+                <button class="quick-btn" onclick="setQuickURL('https://somsuite.tech/contact')">Contact</button>
+                <button class="quick-btn" onclick="setQuickURL('https://somsuite.tech/services')">Services</button>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        const urlInput = document.getElementById('urlInput');
+        const sizeInput = document.getElementById('sizeInput');
+        const sizeValue = document.getElementById('sizeValue');
+        const qrcodeDiv = document.getElementById('qrcode');
+        
+        function generateQR() {
+            const url = urlInput.value || 'https://somsuite.tech';
+            const size = parseInt(sizeInput.value);
+            
+            qrcodeDiv.innerHTML = '';
+            
+            QRCode.toCanvas(qrcodeDiv, url, {
+                width: size,
+                margin: 2,
+                color: {
+                    dark: '#000000',
+                    light: '#FFFFFF'
+                }
+            }, function (error) {
+                if (error) {
+                    console.error(error);
+                    qrcodeDiv.innerHTML = '<p style="color: red;">Error generating QR code</p>';
+                }
+            });
+        }
+        
+        function downloadQR() {
+            const canvas = qrcodeDiv.querySelector('canvas');
+            if (!canvas) {
+                alert('Please generate a QR code first');
+                return;
+            }
+            
+            const url = canvas.toDataURL('image/png');
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = `somsuite-qrcode-${Date.now()}.png`;
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+        }
+        
+        function setQuickURL(url) {
+            urlInput.value = url;
+            generateQR();
+        }
+        
+        sizeInput.addEventListener('input', function() {
+            sizeValue.textContent = this.value;
+            generateQR();
+        });
+        
+        urlInput.addEventListener('input', function() {
+            generateQR();
+        });
+        
+        // Generate initial QR code
+        generateQR();
+    </script>
+</body>
+</html>
