@@ -1,7 +1,7 @@
 import { Card } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Server, Monitor, HardDrive, Wifi, Shield, Zap, CheckCircle, TrendingUp } from 'lucide-react';
-import { Link } from 'react-router-dom';
+import Link from 'next/link';
 
 const Hardware = () => {
   const categories = [
@@ -79,7 +79,7 @@ const Hardware = () => {
             <p className="text-xl text-muted-foreground max-w-3xl mx-auto mb-8 animate-fade-in" style={{ animationDelay: '0.1s' }}>
               Premium business hardware from leading manufacturers. Built for performance, reliability, and growth.
             </p>
-            <Link to="/contact">
+            <Link href="/contact">
               <Button variant="hero" size="lg" className="animate-fade-in" style={{ animationDelay: '0.2s' }}>
                 Request Quote
               </Button>
@@ -179,7 +179,7 @@ const Hardware = () => {
           <p className="text-xl text-muted-foreground mb-8 max-w-2xl mx-auto">
             Get a customized quote for your business hardware needs
           </p>
-          <Link to="/contact">
+          <Link href="/contact">
             <Button variant="hero" size="lg">
               Contact Sales Team
             </Button>

@@ -1,7 +1,7 @@
 import { Card } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Code, Smartphone, Globe, Database, Zap, Users, CheckCircle, Rocket } from 'lucide-react';
-import { Link } from 'react-router-dom';
+import Link from 'next/link';
 
 const Custom = () => {
   const services = [
@@ -89,7 +89,7 @@ const Custom = () => {
             <p className="text-xl text-muted-foreground max-w-3xl mx-auto mb-8 animate-fade-in" style={{ animationDelay: '0.1s' }}>
               Bespoke software solutions designed specifically for your business needs. From web apps to mobile platforms.
             </p>
-            <Link to="/contact">
+            <Link href="/contact">
               <Button variant="hero" size="lg" className="animate-fade-in" style={{ animationDelay: '0.2s' }}>
                 Start Your Project
               </Button>
@@ -193,7 +193,7 @@ const Custom = () => {
           <p className="text-xl text-muted-foreground mb-8 max-w-2xl mx-auto">
             Turn your vision into reality with our custom development services
           </p>
-          <Link to="/contact">
+          <Link href="/contact">
             <Button variant="hero" size="lg">
               Discuss Your Project
             </Button>

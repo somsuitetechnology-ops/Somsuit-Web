@@ -1,5 +1,9 @@
+"use client";
+
 import { useState, useEffect } from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import Link from 'next/link';
+import Image from 'next/image';
+import { usePathname } from 'next/navigation';
 import { Button } from '@/components/ui/button';
 import { ThemeToggle } from '@/components/ThemeToggle';
 import { Menu, X, ChevronDown, ChevronUp } from 'lucide-react';
@@ -22,7 +26,7 @@ const Navigation = () => {
   const [mobileAboutOpen, setMobileAboutOpen] = useState(false);
   const [mobileServicesOpen, setMobileServicesOpen] = useState(false);
   const [mobileProductsOpen, setMobileProductsOpen] = useState(false);
-  const location = useLocation();
+  const pathname = usePathname();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -66,7 +70,7 @@ const Navigation = () => {
     { name: 'AI & Automation Tools', href: '/products/ai' },
   ];
 
-  const isActive = (path: string) => location.pathname === path;
+  const isActive = (path: string) => pathname === path;
 
   return (
     <nav 
@@ -77,11 +81,14 @@ const Navigation = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-20">
           {/* Logo - Normal Size */}
-          <Link to="/" className="flex items-center space-x-3 hover:opacity-80 transition-opacity flex-shrink-0">
-            <img 
+          <Link href="/" className="flex items-center space-x-3 hover:opacity-80 transition-opacity flex-shrink-0">
+            <Image 
               src={moralTechLogo} 
               alt="Somsuite Technology" 
+              width={180}
+              height={64}
               className="h-16 w-auto object-contain"
+              priority
             />
           </Link>
 
@@ -103,7 +110,7 @@ const Navigation = () => {
                               <li key={subItem.name}>
                                 <NavigationMenuLink asChild>
                                   <Link
-                                    to={subItem.href}
+                                    href={subItem.href}
                                     className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-muted hover:text-accent focus:bg-muted focus:text-accent"
                                   >
                                     <div className="text-sm font-medium leading-none">
@@ -135,7 +142,7 @@ const Navigation = () => {
                               <li key={subItem.name}>
                                 <NavigationMenuLink asChild>
                                   <Link
-                                    to={subItem.href}
+                                    href={subItem.href}
                                     className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-muted hover:text-accent focus:bg-muted focus:text-accent"
                                   >
                                     <div className="text-sm font-medium leading-none">
@@ -167,7 +174,7 @@ const Navigation = () => {
                               <li key={subItem.name}>
                                 <NavigationMenuLink asChild>
                                   <Link
-                                    to={subItem.href}
+                                    href={subItem.href}
                                     className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-muted hover:text-accent focus:bg-muted focus:text-accent"
                                   >
                                     <div className="text-sm font-medium leading-none">
@@ -188,7 +195,7 @@ const Navigation = () => {
               return (
                 <Link
                   key={item.name}
-                  to={item.href}
+                  href={item.href}
                   className={`px-2.5 py-2 text-xs font-semibold transition-colors relative group whitespace-nowrap ${
                     isActive(item.href)
                       ? 'text-accent'
@@ -245,7 +252,7 @@ const Navigation = () => {
                           {aboutDropdown.map((subItem) => (
                             <Link
                               key={subItem.name}
-                              to={subItem.href}
+                              href={subItem.href}
                               className={`block px-3 py-2 text-sm transition-colors ${
                                 isActive(subItem.href)
                                   ? 'text-accent bg-white/10'
@@ -281,7 +288,7 @@ const Navigation = () => {
                           {servicesDropdown.map((subItem) => (
                             <Link
                               key={subItem.name}
-                              to={subItem.href}
+                              href={subItem.href}
                               className={`block px-3 py-2 text-sm transition-colors ${
                                 isActive(subItem.href)
                                   ? 'text-accent bg-white/10'
@@ -317,7 +324,7 @@ const Navigation = () => {
                           {productsDropdown.map((subItem) => (
                             <Link
                               key={subItem.name}
-                              to={subItem.href}
+                              href={subItem.href}
                               className={`block px-3 py-2 text-sm transition-colors ${
                                 isActive(subItem.href)
                                   ? 'text-accent bg-white/10'
@@ -341,7 +348,7 @@ const Navigation = () => {
                 return (
                   <Link
                     key={item.name}
-                    to={item.href}
+                    href={item.href}
                     className={`block px-3 py-2 text-sm font-medium transition-colors ${
                       isActive(item.href)
                         ? 'text-accent bg-white/10'

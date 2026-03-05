@@ -1,6 +1,6 @@
 import { Card } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
-import { Link } from 'react-router-dom';
+import Link from 'next/link';
 import { Cpu, Layers, Link as LinkIcon, Zap, CheckCircle, ArrowRight } from 'lucide-react';
 
 const Integration = () => {
@@ -25,7 +25,7 @@ const Integration = () => {
             asChild 
             className="bg-accent hover:bg-accent-hover text-primary font-semibold px-10"
           >
-            <Link to="/contact">
+            <Link href="/contact">
               Integrate Your Systems <ArrowRight className="ml-2" />
             </Link>
           </Button>
@@ -245,7 +245,7 @@ const Integration = () => {
             asChild 
             className="bg-accent hover:bg-accent-hover text-primary font-semibold px-10"
           >
-            <Link to="/contact">
+            <Link href="/contact">
               Discuss Integration <ArrowRight className="ml-2" />
             </Link>
           </Button>

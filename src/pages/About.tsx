@@ -1,6 +1,6 @@
 import { Card } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
-import { Link } from 'react-router-dom';
+import Link from 'next/link';
 import { Target, Eye, Award, Users, ArrowRight } from 'lucide-react';
 import somsuiteLogo from '@/assets/somsuite.png';
 
@@ -128,7 +128,7 @@ const About = () => {
               </div>
 
               <Button variant="accent" size="lg" asChild>
-                <Link to="/services">
+                <Link href="/services">
                   Explore Our Services <ArrowRight className="ml-2" size={20} />
                 </Link>
               </Button>
@@ -167,7 +167,7 @@ const About = () => {
             Let's discuss how we can help transform your business with innovative technology solutions.
           </p>
           <Button variant="hero" size="lg" asChild>
-            <Link to="/contact">
+            <Link href="/contact">
               Get In Touch <ArrowRight className="ml-2" size={20} />
             </Link>
           </Button>

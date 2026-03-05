@@ -1,6 +1,6 @@
 import { Card } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
-import { Link } from 'react-router-dom';
+import Link from 'next/link';
 import { Wrench, HeadphonesIcon, Clock, TrendingUp, CheckCircle, ArrowRight } from 'lucide-react';
 
 const ManagedServices = () => {
@@ -27,7 +27,7 @@ const ManagedServices = () => {
                 asChild 
                 className="bg-accent hover:bg-accent-hover text-primary font-semibold px-10"
               >
-                <Link to="/contact">
+                <Link href="/contact">
                   Get Started <ArrowRight className="ml-2" />
                 </Link>
               </Button>
@@ -255,7 +255,7 @@ const ManagedServices = () => {
                   className={tier.recommended ? "w-full bg-accent hover:bg-accent-hover text-primary" : "w-full"}
                   asChild
                 >
-                  <Link to="/contact">
+                  <Link href="/contact">
                     Get Started
                   </Link>
                 </Button>
@@ -280,7 +280,7 @@ const ManagedServices = () => {
             asChild 
             className="bg-accent hover:bg-accent-hover text-primary font-semibold px-10"
           >
-            <Link to="/contact">
+            <Link href="/contact">
               Schedule Consultation <ArrowRight className="ml-2" />
             </Link>
           </Button>

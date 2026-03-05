@@ -1,10 +1,12 @@
+"use client";
+
 import { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Card } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from '@/components/ui/dialog';
 import { Tabs, TabsList, TabsTrigger, TabsContent } from '@/components/ui/tabs';
-import { Link } from 'react-router-dom';
+import Link from 'next/link';
 import { ArrowRight, Network, Cloud, Shield, Cpu, Wrench, Globe, ExternalLink, Users, BookOpen, ShoppingCart, Heart, Database, FileText, Handshake, Factory, Package, Wallet, BarChart3, Clock, Calculator, CreditCard, Receipt, UserCog, Zap } from 'lucide-react';
 
 const baraarugImage = '/lovable-uploads/584c88fd-31cf-4435-990e-889f5cfafa3f.png';
@@ -256,7 +258,7 @@ const Home = () => {
               asChild 
               className="text-lg px-12 py-7 bg-accent hover:bg-accent-hover text-primary font-bold shadow-2xl shadow-accent/30 group border-2 border-accent/50 hover:scale-105 transition-all"
             >
-              <Link to="/contact">
+              <Link href="/contact">
                 Schedule to Discuss 
                 <ArrowRight className="ml-2 group-hover:translate-x-2 transition-transform" size={24} />
               </Link>
@@ -267,7 +269,7 @@ const Home = () => {
               asChild 
               className="text-lg px-12 py-7 border-2 border-white/30 text-white hover:bg-white/10 backdrop-blur-sm"
             >
-              <Link to="/services">
+              <Link href="/services">
                 Our Services
               </Link>
             </Button>
@@ -386,7 +388,7 @@ const Home = () => {
 
                   {/* Read More Link with Arrow */}
                   <Link 
-                    to={service.link}
+                    href={service.link ?? "/services"}
                     className="inline-flex items-center gap-2 text-accent font-semibold text-sm group-hover:gap-3 transition-all duration-300 group/link relative"
                   >
                     <span className="relative">
@@ -406,7 +408,7 @@ const Home = () => {
           {/* View All Services Button */}
           <div className="text-center mt-16 animate-fade-in" style={{ animationDelay: '0.4s' }}>
             <Button variant="hero" size="lg" asChild className="group">
-              <Link to="/services">
+              <Link href="/services">
                 View All Services
                 <ArrowRight className="ml-2 group-hover:translate-x-2 transition-transform" />
               </Link>
@@ -478,7 +480,7 @@ const Home = () => {
                 asChild 
                 className="bg-accent hover:bg-accent-hover text-primary font-semibold px-8"
               >
-                <Link to="/about">
+                <Link href="/about">
                   Read More <ArrowRight className="ml-2" />
                 </Link>
               </Button>
@@ -719,7 +721,7 @@ const Home = () => {
 
           <div className="text-center">
             <Button variant="outline" size="lg" asChild className="border-accent text-accent hover:bg-accent hover:text-white">
-              <Link to="/projects">
+              <Link href="/projects">
                 View All Projects <ArrowRight className="ml-2" />
               </Link>
             </Button>
@@ -885,7 +887,7 @@ const Home = () => {
                   asChild
                   className="bg-accent hover:bg-accent-hover text-primary font-bold text-lg px-10 py-6 shadow-2xl shadow-accent/30 group border-2 border-accent/50 hover:scale-105 transition-all"
                 >
-                  <Link to="/contact">
+                  <Link href="/contact">
                     Share Your Idea
                     <ArrowRight className="ml-2 group-hover:translate-x-2 transition-transform" />
                   </Link>
@@ -897,7 +899,7 @@ const Home = () => {
                   asChild
                   className="border-2 border-white/30 text-white hover:bg-white/10 backdrop-blur-sm text-lg px-10 py-6"
                 >
-                  <Link to="/projects">
+                  <Link href="/projects">
                     View Our Work
                   </Link>
                 </Button>
@@ -926,7 +928,7 @@ const Home = () => {
             asChild 
             className="bg-accent text-primary hover:bg-accent-hover text-lg px-10 py-6 glow-intense"
           >
-            <Link to="/contact">
+            <Link href="/contact">
               Get Started Today <ArrowRight className="ml-2" />
             </Link>
           </Button>
@@ -1055,7 +1057,7 @@ const Home = () => {
                   asChild
                   className="bg-accent hover:bg-accent-hover"
                 >
-                  <Link to="/products/flowerp" onClick={() => setErpDialogOpen(false)}>
+                  <Link href="/products/flowerp" onClick={() => setErpDialogOpen(false)}>
                     View Full Details
                     <ArrowRight className="ml-2 w-4 h-4" />
                   </Link>

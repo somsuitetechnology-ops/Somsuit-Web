@@ -1,6 +1,6 @@
 import { Card } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
-import { Link } from 'react-router-dom';
+import Link from 'next/link';
 import { Network, Server, Shield, Zap, CheckCircle, ArrowRight } from 'lucide-react';
 
 const Networking = () => {
@@ -27,7 +27,7 @@ const Networking = () => {
                 asChild 
                 className="bg-accent hover:bg-accent-hover text-primary font-semibold px-10"
               >
-                <Link to="/contact">
+                <Link href="/contact">
                   Get Started <ArrowRight className="ml-2" />
                 </Link>
               </Button>
@@ -156,7 +156,7 @@ const Networking = () => {
             asChild 
             className="bg-accent hover:bg-accent-hover text-primary font-semibold px-10"
           >
-            <Link to="/contact">
+            <Link href="/contact">
               Schedule Consultation <ArrowRight className="ml-2" />
             </Link>
           </Button>

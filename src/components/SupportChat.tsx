@@ -1,3 +1,5 @@
+"use client";
+
 import { useState, useRef, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -14,7 +16,9 @@ import {
 
 type Message = { role: 'user' | 'assistant'; content: string };
 
-const CHAT_URL = `${import.meta.env.VITE_SUPABASE_URL}/functions/v1/support-chat`;
+const SUPABASE_URL = process.env.NEXT_PUBLIC_SUPABASE_URL ?? "";
+const SUPABASE_ANON_KEY = process.env.NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY ?? "";
+const CHAT_URL = SUPABASE_URL ? `${SUPABASE_URL}/functions/v1/support-chat` : "";
 
 const LANGUAGES = {
   en: { name: 'English', flag: '🇬🇧' },
@@ -99,11 +103,19 @@ export const SupportChat = () => {
     let assistantContent = '';
 
     try {
+      if (!CHAT_URL || !SUPABASE_ANON_KEY) {
+        setMessages(prev => [...prev, {
+          role: 'assistant',
+          content: 'Chat is not configured. Please contact us via the link below.',
+        }]);
+        setIsLoading(false);
+        return;
+      } else {
       const response = await fetch(CHAT_URL, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
-          Authorization: `Bearer ${import.meta.env.VITE_SUPABASE_PUBLISHABLE_KEY}`,
+          Authorization: `Bearer ${SUPABASE_ANON_KEY}`,
         },
         body: JSON.stringify({ 
           messages: [...messages, userMessage],
@@ -174,6 +186,7 @@ export const SupportChat = () => {
             break;
           }
         }
+      }
       }
 
       setIsLoading(false);

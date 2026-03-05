@@ -1,6 +1,6 @@
 import { Card } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
-import { Link } from 'react-router-dom';
+import Link from 'next/link';
 import { Shield, Lock, Eye, AlertTriangle, CheckCircle, ArrowRight } from 'lucide-react';
 
 const Security = () => {
@@ -25,7 +25,7 @@ const Security = () => {
             asChild 
             className="bg-accent hover:bg-accent-hover text-primary font-semibold px-10"
           >
-            <Link to="/contact">
+            <Link href="/contact">
               Secure Your Business <ArrowRight className="ml-2" />
             </Link>
           </Button>
@@ -208,7 +208,7 @@ const Security = () => {
             asChild 
             className="bg-accent hover:bg-accent-hover text-primary font-semibold px-10"
           >
-            <Link to="/contact">
+            <Link href="/contact">
               Request Assessment <ArrowRight className="ml-2" />
             </Link>
           </Button>

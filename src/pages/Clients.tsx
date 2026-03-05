@@ -1,7 +1,7 @@
 import { Card } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Quote, Award, TrendingUp, Users, Star } from 'lucide-react';
-import { Link } from 'react-router-dom';
+import Link from 'next/link';
 
 const Clients = () => {
   const testimonials = [
@@ -210,7 +210,7 @@ const Clients = () => {
           <p className="text-xl text-muted-foreground mb-8 max-w-2xl mx-auto">
             Partner with us to transform your business with cutting-edge IT solutions
           </p>
-          <Link to="/contact">
+          <Link href="/contact">
             <Button variant="hero" size="lg" className="group">
               Start Your Journey
               <TrendingUp className="w-5 h-5 group-hover:translate-x-1 transition-transform" />

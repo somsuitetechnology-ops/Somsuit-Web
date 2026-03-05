@@ -1,9 +1,11 @@
+"use client";
+
 import { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Card } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Dialog, DialogContent } from '@/components/ui/dialog';
-import { Link } from 'react-router-dom';
+import Link from 'next/link';
 import { 
   ShoppingCart, 
   FileText, 
@@ -250,7 +252,7 @@ const AsuitERP = () => {
               </a>
             </Button>
             <Button size="lg" variant="outline" className="text-lg px-8 py-6 border-2 border-white/30 text-white hover:bg-white/10 backdrop-blur-sm" asChild>
-              <Link to="/contact">
+              <Link href="/contact">
                 Contact Sales
               </Link>
             </Button>
@@ -526,7 +528,7 @@ const AsuitERP = () => {
               </a>
             </Button>
             <Button size="lg" variant="outline" className="text-lg px-10 py-7 border-2 border-white/30 text-white hover:bg-white/10 backdrop-blur-sm" asChild>
-              <Link to="/contact">
+              <Link href="/contact">
                 Contact Us
               </Link>
             </Button>

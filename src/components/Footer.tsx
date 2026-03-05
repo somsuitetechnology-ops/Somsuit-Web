@@ -1,5 +1,5 @@
-
-import { Link } from 'react-router-dom';
+import Link from 'next/link';
+import Image from 'next/image';
 import { Mail, Phone, MapPin, Github, Linkedin, Twitter } from 'lucide-react';
 import somsuiteLogo from '@/assets/somsuite.png';
 
@@ -14,7 +14,7 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           {/* Company Info */}
           <div className="col-span-1 md:col-span-2">
-            <img src={moralTechLogo} alt="Somsuite Technology" className="h-12 w-auto mb-4" />
+            <Image src={moralTechLogo} alt="Somsuite Technology" width={180} height={48} className="h-12 w-auto mb-4 object-contain" />
             <p className="text-foreground-muted mb-4 max-w-md">
               Empowering businesses through innovative technology solutions. We specialize in 
               creating digital experiences that drive growth and success.
@@ -36,11 +36,11 @@ const Footer = () => {
           <div>
             <h3 className="text-foreground font-semibold mb-4">Quick Links</h3>
             <ul className="space-y-2">
-              <li><Link to="/" className="text-foreground-muted hover:text-accent transition-colors">Home</Link></li>
-              <li><Link to="/about" className="text-foreground-muted hover:text-accent transition-colors">About Us</Link></li>
-              <li><Link to="/services" className="text-foreground-muted hover:text-accent transition-colors">Services</Link></li>
-              <li><Link to="/projects" className="text-foreground-muted hover:text-accent transition-colors">Projects</Link></li>
-              <li><Link to="/contact" className="text-foreground-muted hover:text-accent transition-colors">Contact</Link></li>
+              <li><Link href="/" className="text-foreground-muted hover:text-accent transition-colors">Home</Link></li>
+              <li><Link href="/about" className="text-foreground-muted hover:text-accent transition-colors">About Us</Link></li>
+              <li><Link href="/services" className="text-foreground-muted hover:text-accent transition-colors">Services</Link></li>
+              <li><Link href="/projects" className="text-foreground-muted hover:text-accent transition-colors">Projects</Link></li>
+              <li><Link href="/contact" className="text-foreground-muted hover:text-accent transition-colors">Contact</Link></li>
             </ul>
           </div>
 

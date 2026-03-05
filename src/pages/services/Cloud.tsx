@@ -1,6 +1,6 @@
 import { Card } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
-import { Link } from 'react-router-dom';
+import Link from 'next/link';
 import { Cloud, Database, Lock, TrendingUp, CheckCircle, ArrowRight } from 'lucide-react';
 
 const CloudComputing = () => {
@@ -25,7 +25,7 @@ const CloudComputing = () => {
             asChild 
             className="bg-accent hover:bg-accent-hover text-primary font-semibold px-10"
           >
-            <Link to="/contact">
+            <Link href="/contact">
               Explore Cloud Solutions <ArrowRight className="ml-2" />
             </Link>
           </Button>
@@ -157,7 +157,7 @@ const CloudComputing = () => {
             asChild 
             className="bg-accent hover:bg-accent-hover text-primary font-semibold px-10"
           >
-            <Link to="/contact">
+            <Link href="/contact">
               Get Cloud Consultation <ArrowRight className="ml-2" />
             </Link>
           </Button>

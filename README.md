@@ -1,6 +1,24 @@
-# Welcome to your Lovable project
+# Somsuite Technology
 
-## Project info
+This project has been **migrated from Vite + React Router to Next.js (App Router)**.
+
+## Running the app
+
+- **Development:** `npm run dev` — runs Next.js at [http://localhost:3000](http://localhost:3000)
+- **Build:** `npm run build`
+- **Start (production):** `npm run start`
+
+This is a **frontend-only** Next.js site. No backend or database is connected.
+
+## Key routes
+
+- `/` — Home  
+- `/login`, `/admin`, `/dashboard` — Placeholder pages (no backend)  
+- `/about`, `/services`, `/contact`, `/products/*`, etc. — Marketing pages  
+
+---
+
+## Project info (Lovable)
 
 **URL**: https://lovable.dev/projects/3d3c7c23-cc43-47ef-83e2-022d6e7432cb
 

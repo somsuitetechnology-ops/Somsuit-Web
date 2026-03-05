@@ -1,6 +1,6 @@
 import { Card } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
-import { Link } from 'react-router-dom';
+import Link from 'next/link';
 import { Palette, Code, Smartphone, Database, HeadphonesIcon, ArrowRight, CheckCircle, Network, GraduationCap, Cloud, Shield } from 'lucide-react';
 
 const Services = () => {
@@ -270,12 +270,12 @@ const services = [
               </p>
               <div className="space-y-4">
                 <Button variant="hero" className="w-full" asChild>
-                  <Link to="/contact">
+                  <Link href="/contact">
                     Start Your Project <ArrowRight className="ml-2" size={20} />
                   </Link>
                 </Button>
                 <Button variant="glass" className="w-full" asChild>
-                  <Link to="/projects">View Our Portfolio</Link>
+                  <Link href="/projects">View Our Portfolio</Link>
                 </Button>
               </div>
             </Card>

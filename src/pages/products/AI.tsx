@@ -1,7 +1,7 @@
 import { Card } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Brain, Bot, Sparkles, Workflow, TrendingUp, Zap, CheckCircle, Rocket } from 'lucide-react';
-import { Link } from 'react-router-dom';
+import Link from 'next/link';
 
 const AI = () => {
   const solutions = [
@@ -98,7 +98,7 @@ const AI = () => {
             <p className="text-xl text-muted-foreground max-w-3xl mx-auto mb-8 animate-fade-in" style={{ animationDelay: '0.1s' }}>
               Harness the power of artificial intelligence and automation to transform your business operations.
             </p>
-            <Link to="/contact">
+            <Link href="/contact">
               <Button variant="hero" size="lg" className="animate-fade-in" style={{ animationDelay: '0.2s' }}>
                 Explore AI Solutions
               </Button>
@@ -204,7 +204,7 @@ const AI = () => {
           <p className="text-xl text-muted-foreground mb-8 max-w-2xl mx-auto">
             Let's discuss how AI can revolutionize your business
           </p>
-          <Link to="/contact">
+          <Link href="/contact">
             <Button variant="hero" size="lg">
               Schedule AI Consultation
             </Button>

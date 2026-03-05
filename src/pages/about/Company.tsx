@@ -1,6 +1,6 @@
 import { Card } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
-import { Link } from 'react-router-dom';
+import Link from 'next/link';
 import { ArrowRight, Award, Target, Users, Lightbulb } from 'lucide-react';
 
 const Company = () => {
@@ -124,7 +124,7 @@ const Company = () => {
             asChild 
             className="bg-accent hover:bg-accent-hover text-primary font-semibold px-10"
           >
-            <Link to="/contact">
+            <Link href="/contact">
               Contact Us Today <ArrowRight className="ml-2" />
             </Link>
           </Button>

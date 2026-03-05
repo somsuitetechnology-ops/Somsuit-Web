@@ -1,7 +1,7 @@
 import { Card } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Package, Shield, Cloud, Code, CheckCircle, Award, TrendingUp } from 'lucide-react';
-import { Link } from 'react-router-dom';
+import Link from 'next/link';
 
 const Software = () => {
   const categories = [
@@ -84,7 +84,7 @@ const Software = () => {
             <p className="text-xl text-muted-foreground max-w-3xl mx-auto mb-8 animate-fade-in" style={{ animationDelay: '0.1s' }}>
               Genuine software licenses from leading vendors. Ensure compliance and maximize productivity.
             </p>
-            <Link to="/contact">
+            <Link href="/contact">
               <Button variant="hero" size="lg" className="animate-fade-in" style={{ animationDelay: '0.2s' }}>
                 Get Licensing Quote
               </Button>
@@ -185,7 +185,7 @@ const Software = () => {
           <p className="text-xl text-muted-foreground mb-8 max-w-2xl mx-auto">
             Contact us for competitive pricing and licensing consultation
           </p>
-          <Link to="/contact">
+          <Link href="/contact">
             <Button variant="hero" size="lg">
               Request Quote
             </Button>

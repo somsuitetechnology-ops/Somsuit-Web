@@ -1,6 +1,6 @@
 import { Card } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
-import { Link } from 'react-router-dom';
+import Link from 'next/link';
 import { Briefcase, MapPin, Clock, ArrowRight, Code, Server, Shield, Users } from 'lucide-react';
 
 const Careers = () => {
@@ -155,7 +155,7 @@ const Careers = () => {
                     className="bg-accent hover:bg-accent-hover text-primary font-semibold whitespace-nowrap"
                     asChild
                   >
-                    <Link to="/contact">
+                    <Link href="/contact">
                       Apply Now <ArrowRight className="ml-2 w-4 h-4" />
                     </Link>
                   </Button>
@@ -233,7 +233,7 @@ const Careers = () => {
             asChild 
             className="bg-accent hover:bg-accent-hover text-primary font-semibold px-10"
           >
-            <Link to="/contact">
+            <Link href="/contact">
               Apply Today <ArrowRight className="ml-2" />
             </Link>
           </Button>
