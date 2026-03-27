@@ -2,7 +2,6 @@ package config
 
 import (
 	"fmt"
-	"net/url"
 	"os"
 	"path/filepath"
 	"strings"
@@ -52,16 +51,8 @@ func Load() (*Config, error) {
 	name := getEnv("DATABASE_NAME", "somsuit_db")
 	ssl := getEnv("DATABASE_SSLMODE", "disable")
 
-	u := &url.URL{
-		Scheme: "postgres",
-		User:   url.UserPassword(user, pass),
-		Host:   fmt.Sprintf("%s:%s", host, port),
-		Path:   "/" + name,
-	}
-	q := u.Query()
-	q.Set("sslmode", ssl)
-	u.RawQuery = q.Encode()
-	dsn := u.String()
+	// libpq keyword format with quoted password — avoids @ / : / etc. breaking URL userinfo
+	dsn := buildPostgresDSN(host, port, user, pass, name, ssl)
 
 	originsStr := getEnv("CORS_ORIGINS", "http://localhost:3000,http://localhost:5173")
 	var origins []string
@@ -150,4 +141,15 @@ func getEnv(key, fallback string) string {
 		return v
 	}
 	return fallback
+}
+
+func quoteLibpqPassword(s string) string {
+	return "'" + strings.ReplaceAll(s, "'", "''") + "'"
+}
+
+func buildPostgresDSN(host, port, user, password, dbname, sslmode string) string {
+	return fmt.Sprintf(
+		"host=%s port=%s user=%s password=%s dbname=%s sslmode=%s",
+		host, port, user, quoteLibpqPassword(password), dbname, sslmode,
+	)
 }
