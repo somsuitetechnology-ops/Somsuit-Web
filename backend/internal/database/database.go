@@ -2,6 +2,7 @@ package database
 
 import (
 	"fmt"
+	"log/slog"
 	"os"
 
 	"somsuite/backend/internal/models"
@@ -41,5 +42,6 @@ func New(dsn string) (*gorm.DB, error) {
 		return nil, fmt.Errorf("auto migrate: %w", err)
 	}
 
+	slog.Info("postgres migrations applied (public schema)")
 	return db, nil
 }

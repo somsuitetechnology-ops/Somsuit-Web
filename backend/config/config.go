@@ -45,12 +45,12 @@ func Load() (*Config, error) {
 	_ = godotenv.Overload()
 	_ = godotenv.Overload("../.env")
 
-	host := getEnv("DATABASE_HOST", "localhost")
-	port := getEnv("DATABASE_PORT", "5434")
-	user := getEnv("DATABASE_USER", "somsuit")
-	pass := getEnv("DATABASE_PASSWORD", "Somsuit@2026")
-	name := getEnv("DATABASE_NAME", "somsuit_db")
-	ssl := getEnv("DATABASE_SSLMODE", "disable")
+	host := strings.TrimSpace(getEnv("DATABASE_HOST", "localhost"))
+	port := strings.TrimSpace(getEnv("DATABASE_PORT", "5434"))
+	user := strings.TrimSpace(getEnv("DATABASE_USER", "somsuit"))
+	pass := strings.TrimSpace(getEnv("DATABASE_PASSWORD", "Somsuit@2026"))
+	name := strings.TrimSpace(getEnv("DATABASE_NAME", "somsuit_db"))
+	ssl := strings.TrimSpace(getEnv("DATABASE_SSLMODE", "disable"))
 
 	// libpq keyword format with quoted password — avoids @ / : / etc. breaking URL userinfo
 	dsn := buildPostgresDSN(host, port, user, pass, name, ssl)
