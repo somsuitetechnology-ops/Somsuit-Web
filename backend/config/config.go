@@ -46,7 +46,8 @@ func Load() (*Config, error) {
 	_ = godotenv.Overload("../.env")
 
 	host := strings.TrimSpace(getEnv("DATABASE_HOST", "localhost"))
-	port := strings.TrimSpace(getEnv("DATABASE_PORT", "5434"))
+	// Default 5432 matches standard PostgreSQL; use DATABASE_PORT=5434 if your local DB uses that.
+	port := strings.TrimSpace(getEnv("DATABASE_PORT", "5432"))
 	user := strings.TrimSpace(getEnv("DATABASE_USER", "somsuit"))
 	pass := strings.TrimSpace(getEnv("DATABASE_PASSWORD", "Somsuit@2026"))
 	name := strings.TrimSpace(getEnv("DATABASE_NAME", "somsuit_db"))
