@@ -1,13 +1,15 @@
 "use client";
 
-import { useState } from 'react';
+import { useState } from "react";
 import { Button } from '@/components/ui/button';
 import { Card } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from '@/components/ui/dialog';
 import { Tabs, TabsList, TabsTrigger, TabsContent } from '@/components/ui/tabs';
-import Link from 'next/link';
-import { ArrowRight, Network, Cloud, Shield, Cpu, Wrench, Globe, ExternalLink, Users, BookOpen, ShoppingCart, Heart, Database, FileText, Handshake, Factory, Package, Wallet, BarChart3, Clock, Calculator, CreditCard, Receipt, UserCog, Zap } from 'lucide-react';
+import Link from "next/link";
+import { HeroBrandIllustration } from "@/components/HeroBrandIllustration";
+import { HeroTechBackground } from "@/components/HeroTechBackground";
+import { ArrowRight, Network, Cloud, Shield, Cpu, Wrench, Globe, ExternalLink, Users, BookOpen, ShoppingCart, Heart, Database, FileText, Handshake, Factory, Package, Wallet, BarChart3, Clock, Calculator, CreditCard, Receipt, UserCog, Zap, Target, Award, ShieldCheck } from 'lucide-react';
 
 const baraarugImage = '/lovable-uploads/584c88fd-31cf-4435-990e-889f5cfafa3f.png';
 const siuAlumniImage = '/lovable-uploads/0c2a73d8-0b86-428f-ac5d-d74aa65c1d1d.png';
@@ -109,196 +111,128 @@ const Home = () => {
 
   return (
     <div className="overflow-hidden">
-      {/* Hero Section */}
-      <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-primary">
-        {/* Ultra Advanced Animated Background */}
+      {/* Hero — two columns: copy + brand vector */}
+      <section className="relative min-h-screen overflow-hidden bg-white dark:bg-background">
         <div className="absolute inset-0">
-          {/* Dynamic Morphing Gradient Mesh */}
-          <div className="absolute inset-0 opacity-40">
-            <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-accent/30 via-accent/10 to-transparent animate-pulse" style={{ animationDuration: '8s' }} />
-            <div className="absolute top-0 right-0 w-full h-full bg-gradient-to-bl from-accent/25 via-transparent to-accent/15 animate-pulse" style={{ animationDuration: '10s', animationDelay: '2s' }} />
-            <div className="absolute bottom-0 left-0 w-full h-full bg-gradient-to-tr from-accent/20 via-transparent to-accent/10 animate-pulse" style={{ animationDuration: '12s', animationDelay: '4s' }} />
-          </div>
-
-          {/* Optimized 3D Grid System - Reduced complexity */}
-          <div className="absolute inset-0 opacity-20" style={{ perspective: '1000px' }}>
-            <div 
-              className="absolute inset-0" 
-              style={{
-                backgroundImage: `
-                  linear-gradient(hsl(var(--accent) / 0.2) 2px, transparent 2px),
-                  linear-gradient(90deg, hsl(var(--accent) / 0.2) 2px, transparent 2px)
-                `,
-                backgroundSize: '100px 100px',
-                backgroundPosition: '0 0',
-                animation: 'gridMove 40s linear infinite'
-              }}
-            />
-          </div>
-
-          {/* Simplified Hexagonal Tech Pattern */}
-          <div className="absolute inset-0 opacity-15" style={{
-            backgroundImage: `radial-gradient(circle at 50% 50%, hsl(var(--accent) / 0.3) 1px, transparent 1px)`,
-            backgroundSize: '60px 60px',
-            backgroundPosition: '0 0',
-            animation: 'hexagonMove 35s linear infinite'
-          }} />
-
-          {/* Optimized Particles - Reduced count */}
-          {[...Array(20)].map((_, i) => (
-            <div
-              key={`particle-${i}`}
-              className="absolute rounded-full bg-accent will-change-transform"
-              style={{
-                width: `${2 + Math.random() * 3}px`,
-                height: `${2 + Math.random() * 3}px`,
-                left: `${Math.random() * 100}%`,
-                top: `${Math.random() * 100}%`,
-                animation: `float ${10 + Math.random() * 10}s ease-in-out infinite`,
-                animationDelay: `${Math.random() * 5}s`,
-                opacity: 0.4 + Math.random() * 0.4,
-                boxShadow: `0 0 20px hsl(var(--accent) / 0.6)`
-              }}
-            />
-          ))}
-
-          {/* Optimized Glowing Orbs */}
-          <div className="absolute -top-48 -left-48 w-[600px] h-[600px] bg-accent/15 rounded-full blur-3xl animate-pulse" style={{ animationDuration: '8s' }} />
-          <div className="absolute -bottom-48 -right-48 w-[700px] h-[700px] bg-accent/20 rounded-full blur-3xl animate-pulse" style={{ animationDuration: '10s', animationDelay: '2s' }} />
-
-          {/* Simplified Circuit Lines */}
-          <svg className="absolute inset-0 w-full h-full opacity-30" xmlns="http://www.w3.org/2000/svg">
-            <defs>
-              <linearGradient id="line-gradient-1" x1="0%" y1="0%" x2="100%" y2="0%">
-                <stop offset="0%" style={{ stopColor: 'hsl(var(--accent))', stopOpacity: 0 }} />
-                <stop offset="50%" style={{ stopColor: 'hsl(var(--accent))', stopOpacity: 0.8 }} />
-                <stop offset="100%" style={{ stopColor: 'hsl(var(--accent))', stopOpacity: 0 }} />
-              </linearGradient>
-            </defs>
-            
-            {/* Horizontal Lines */}
-            <line x1="0" y1="25%" x2="100%" y2="25%" stroke="url(#line-gradient-1)" strokeWidth="2">
-              <animate attributeName="x1" from="-100%" to="100%" dur="6s" repeatCount="indefinite" />
-              <animate attributeName="x2" from="0%" to="200%" dur="6s" repeatCount="indefinite" />
-            </line>
-            <line x1="0" y1="75%" x2="100%" y2="75%" stroke="url(#line-gradient-1)" strokeWidth="2">
-              <animate attributeName="x1" from="-100%" to="100%" dur="8s" repeatCount="indefinite" />
-              <animate attributeName="x2" from="0%" to="200%" dur="8s" repeatCount="indefinite" />
-            </line>
-            
-            {/* Vertical Lines */}
-            <line x1="25%" y1="0" x2="25%" y2="100%" stroke="url(#line-gradient-1)" strokeWidth="2">
-              <animate attributeName="y1" from="-100%" to="100%" dur="7s" repeatCount="indefinite" />
-              <animate attributeName="y2" from="0%" to="200%" dur="7s" repeatCount="indefinite" />
-            </line>
-            <line x1="75%" y1="0" x2="75%" y2="100%" stroke="url(#line-gradient-1)" strokeWidth="2">
-              <animate attributeName="y1" from="-100%" to="100%" dur="9s" repeatCount="indefinite" />
-              <animate attributeName="y2" from="0%" to="200%" dur="9s" repeatCount="indefinite" />
-            </line>
-          </svg>
-
-          {/* Simplified Geometric Shapes */}
-          <div className="absolute top-20 left-20 w-40 h-40 border-2 border-accent/30 rotate-45" style={{ animation: 'float 15s ease-in-out infinite' }} />
-          <div className="absolute bottom-24 right-24 w-36 h-36 border-2 border-accent/25 rounded-full" style={{ animation: 'float 18s ease-in-out infinite' }} />
-          
-          {/* Simplified Tech Nodes - Reduced count */}
-          {[...Array(8)].map((_, i) => (
-            <div
-              key={`node-${i}`}
-              className="absolute w-4 h-4 bg-accent/40 rounded-full will-change-transform"
-              style={{
-                left: `${20 + (i * 10)}%`,
-                top: `${30 + (i % 3) * 20}%`,
-                animation: `pulse 5s ease-in-out infinite, float ${10 + i * 2}s ease-in-out infinite`,
-                animationDelay: `${i * 0.5}s`,
-                boxShadow: '0 0 30px hsl(var(--accent) / 0.6)'
-              }}
-            >
-              <div className="absolute inset-0 rounded-full bg-accent/30 animate-ping" style={{ animationDuration: '4s' }} />
-            </div>
-          ))}
-
-          {/* Simplified Digital Rain - Reduced count */}
-          {[...Array(10)].map((_, i) => (
-            <div
-              key={`rain-${i}`}
-              className="absolute w-px opacity-40"
-              style={{
-                left: `${i * 10}%`,
-                height: '100%',
-                background: `linear-gradient(to bottom, transparent, hsl(var(--accent) / 0.5), transparent)`,
-                animation: `matrixRain ${5 + Math.random() * 5}s linear infinite`,
-                animationDelay: `${Math.random() * 5}s`
-              }}
-            />
-          ))}
+          <div className="absolute inset-0 bg-gradient-to-b from-white via-[hsl(204_35%_98%)] to-white dark:from-background dark:via-background-secondary dark:to-background" />
+          <div
+            className="absolute inset-0 opacity-[0.4] dark:opacity-28"
+            style={{
+              backgroundImage: `
+                linear-gradient(hsl(var(--accent) / 0.1) 1px, transparent 1px),
+                linear-gradient(90deg, hsl(var(--accent) / 0.1) 1px, transparent 1px)
+              `,
+              backgroundSize: "64px 64px",
+              animation: "gridMove 50s linear infinite",
+            }}
+          />
+          <div
+            className="absolute -right-32 top-1/4 h-[min(480px,70vw)] w-[min(480px,70vw)] rounded-full bg-accent/12 blur-3xl dark:bg-accent/15"
+            aria-hidden
+          />
+          <div
+            className="absolute -left-24 bottom-0 h-72 w-72 rounded-full bg-[hsl(var(--brand-primary)/0.04)] blur-3xl"
+            aria-hidden
+          />
         </div>
 
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center py-20">
-          <div className="inline-block mb-6 px-6 py-3 bg-accent/20 border-2 border-accent/40 rounded-full backdrop-blur-sm shadow-lg shadow-accent/20">
-            <span className="text-accent font-bold text-sm tracking-wider">🚀 Innovative Technology Solutions</span>
-          </div>
-          
-          <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-8 leading-tight">
-            <span className="block mb-3">Providing Quality</span>
-            <span className="block mb-3 bg-gradient-to-r from-accent via-accent to-accent bg-clip-text text-transparent animate-pulse drop-shadow-[0_0_30px_rgba(214,254,92,0.5)]" style={{ animationDuration: '3s' }}>
-              Systems Solutions
-            </span>
-            <span className="block text-white/90">is Our Top Priority!</span>
-          </h1>
-          
-          <p className="text-xl md:text-2xl text-white/80 mb-12 max-w-4xl mx-auto leading-relaxed">
-            Empowering businesses through cutting-edge technology, innovative solutions, and exceptional IT services. Transform your digital presence with Somsuite Technology.
-          </p>
-          
-          <div className="flex flex-col sm:flex-row gap-6 justify-center items-center mb-16">
-            <Button 
-              variant="default" 
-              size="lg" 
-              asChild 
-              className="text-lg px-12 py-7 bg-accent hover:bg-accent-hover text-primary font-bold shadow-2xl shadow-accent/30 group border-2 border-accent/50 hover:scale-105 transition-all"
-            >
-              <Link href="/contact">
-                Schedule to Discuss 
-                <ArrowRight className="ml-2 group-hover:translate-x-2 transition-transform" size={24} />
-              </Link>
-            </Button>
-            <Button 
-              variant="outline" 
-              size="lg" 
-              asChild 
-              className="text-lg px-12 py-7 border-2 border-white/30 text-white hover:bg-white/10 backdrop-blur-sm"
-            >
-              <Link href="/services">
-                Our Services
-              </Link>
-            </Button>
+        <div className="relative z-0 mx-auto max-w-7xl px-4 py-16 sm:px-6 sm:py-20 lg:px-8 lg:py-24">
+          <div className="grid grid-cols-1 items-center gap-12 lg:grid-cols-2 lg:gap-10 xl:gap-16">
+            {/* Column 1 — messaging */}
+            <div className="order-2 text-center lg:order-1 lg:text-left">
+              <div className="mb-5 inline-flex rounded-full border border-accent/35 bg-accent/10 px-4 py-2 shadow-sm shadow-accent/10 backdrop-blur-sm dark:border-accent/40 dark:bg-accent/15 lg:mx-0">
+                <span className="text-xs font-bold uppercase tracking-[0.2em] text-accent sm:text-sm">
+                  Cloud · Network · Security
+                </span>
+              </div>
+
+              <h1 className="mb-5 text-4xl font-bold leading-[1.08] tracking-tight text-foreground sm:text-5xl md:text-6xl lg:text-[2.75rem] xl:text-[3.25rem]">
+                <span className="block">Grow without</span>
+                <span className="mt-1 block bg-gradient-to-r from-accent via-brand-accent to-[hsl(var(--brand-accent-muted))] bg-clip-text text-transparent drop-shadow-[0_0_24px_hsl(var(--brand-accent)/0.28)]">
+                  IT friction.
+                </span>
+              </h1>
+
+              <p className="mx-auto mb-9 max-w-md text-base leading-relaxed text-muted-foreground md:text-lg lg:mx-0 lg:max-w-sm">
+                One partner for strategy, build, and support—so your teams move fast and stay secure.
+              </p>
+
+              <div className="flex flex-col items-center gap-4 sm:flex-row sm:justify-center lg:justify-start">
+                <Button
+                  variant="default"
+                  size="lg"
+                  asChild
+                  className="group w-full border-2 border-accent/40 px-10 py-6 text-base font-bold shadow-xl shadow-accent/25 transition-all hover:scale-[1.02] sm:w-auto sm:px-12 sm:py-7 sm:text-lg"
+                >
+                  <Link href="/contact">
+                    Schedule to Discuss
+                    <ArrowRight className="ml-2 transition-transform group-hover:translate-x-2" size={22} />
+                  </Link>
+                </Button>
+                <Button
+                  variant="outline"
+                  size="lg"
+                  asChild
+                  className="w-full border-2 border-border px-10 py-6 text-base text-foreground backdrop-blur-sm hover:bg-accent/10 hover:text-accent dark:border-white/20 sm:w-auto sm:px-12 sm:py-7 sm:text-lg"
+                >
+                  <Link href="/services">Our Services</Link>
+                </Button>
+              </div>
+            </div>
+
+            {/* Column 2 — brand vector */}
+            <div className="order-1 flex justify-center lg:order-2 lg:justify-end">
+              <div className="relative w-full max-w-[540px] rounded-[2rem] border border-[hsl(var(--brand-accent)/0.22)] bg-gradient-to-br from-white via-[hsl(204_42%_99%)] to-[hsl(204_32%_96%)] p-5 shadow-[0_36px_90px_-28px_hsl(var(--brand-accent)/0.42),0_0_0_1px_rgba(255,255,255,0.8)_inset] ring-1 ring-[hsl(var(--brand-accent)/0.1)] dark:from-[hsl(var(--card)/0.85)] dark:via-background dark:to-background dark:ring-white/10 sm:p-7">
+                <div className="pointer-events-none absolute -inset-px rounded-[2rem] bg-gradient-to-br from-[hsl(var(--brand-accent)/0.2)] via-transparent to-[hsl(var(--brand-accent)/0.08)] opacity-60 dark:opacity-40" />
+                <div className="pointer-events-none absolute -left-3 top-10 h-28 w-28 rounded-full border-2 border-dashed border-[hsl(var(--brand-accent)/0.3)] opacity-90 dark:border-accent/35" />
+                <div className="pointer-events-none absolute -bottom-5 -right-5 h-24 w-24 rounded-2xl border-2 border-[hsl(var(--brand-accent)/0.22)] opacity-90" />
+                <div className="relative">
+                  <HeroBrandIllustration />
+                </div>
+              </div>
+            </div>
           </div>
 
-          {/* Animated Stats */}
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 max-w-5xl mx-auto">
-            {[
-              { number: "50+", label: "Projects Delivered", icon: "🎯" },
-              { number: "25+", label: "Happy Clients", icon: "😊" },
-              { number: "5+", label: "Years Experience", icon: "⭐" },
-              { number: "24/7", label: "Support", icon: "🛡️" }
-            ].map((stat, i) => (
-              <div 
-                key={i} 
-                className="group relative p-6 bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl hover:bg-white/10 hover:border-accent/50 transition-all duration-300 hover:scale-105 hover:shadow-xl hover:shadow-accent/20"
-              >
-                <div className="text-4xl mb-3 group-hover:scale-110 transition-transform">
-                  {stat.icon}
-                </div>
-                <div className="text-4xl md:text-5xl font-bold text-accent mb-2 group-hover:text-accent-hover transition-colors">
-                  {stat.number}
-                </div>
-                <div className="text-white/70 font-medium text-sm">
-                  {stat.label}
-                </div>
-                <div className="absolute inset-0 rounded-2xl bg-accent/5 opacity-0 group-hover:opacity-100 transition-opacity -z-10" />
+          {/* Stats — single branded ribbon (Lucide icons only, no emoji) */}
+          <div className="mx-auto mt-14 max-w-5xl lg:mt-20">
+            <div className="relative overflow-hidden rounded-3xl border border-[hsl(var(--brand-accent)/0.18)] bg-white/80 shadow-[0_24px_60px_-28px_hsl(var(--brand-accent)/0.25),inset_0_1px_0_0_rgba(255,255,255,0.9)] backdrop-blur-md dark:border-white/[0.09] dark:bg-[hsl(var(--card)/0.55)] dark:shadow-[0_24px_60px_-24px_rgba(0,0,0,0.45),inset_0_1px_0_0_rgba(255,255,255,0.05)]">
+              <div
+                className="h-1 w-full bg-gradient-to-r from-transparent via-[hsl(var(--brand-accent))] to-transparent opacity-90"
+                aria-hidden
+              />
+              <div className="grid grid-cols-1 gap-px bg-[hsl(var(--brand-accent)/0.14)] sm:grid-cols-2 md:grid-cols-4 dark:bg-white/[0.1]">
+                {(
+                  [
+                    { number: "50+", label: "Projects delivered", Icon: Target },
+                    { number: "25+", label: "Happy clients", Icon: Users },
+                    { number: "5+", label: "Years experience", Icon: Award },
+                    { number: "24/7", label: "Always-on support", Icon: ShieldCheck },
+                  ] as const
+                ).map(({ number, label, Icon }) => (
+                  <div
+                    key={label}
+                    className="group relative flex items-center gap-4 bg-white px-5 py-6 transition-colors duration-300 hover:bg-[hsl(var(--brand-accent)/0.05)] dark:bg-[hsl(var(--card)/0.85)] dark:hover:bg-[hsl(var(--brand-accent)/0.1)] sm:px-6 sm:py-7 md:flex-col md:items-center md:gap-4 md:px-5 md:py-10 md:text-center"
+                  >
+                    <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl border border-[hsl(var(--brand-accent)/0.22)] bg-[linear-gradient(160deg,hsl(var(--brand-accent)/0.2),hsl(var(--brand-accent)/0.07))] text-[hsl(var(--brand-accent))] shadow-[0_6px_20px_-8px_hsl(var(--brand-accent)/0.45)] ring-2 ring-[hsl(var(--brand-accent)/0.08)] transition-transform duration-300 group-hover:scale-105 dark:border-[hsl(var(--brand-accent)/0.35)] dark:from-[hsl(var(--brand-accent)/0.28)] dark:to-[hsl(var(--brand-accent)/0.1)] dark:ring-[hsl(var(--brand-accent)/0.12)] sm:h-12 sm:w-12 md:mb-1">
+                      <Icon className="h-[22px] w-[22px] sm:h-6 sm:w-6" strokeWidth={2} aria-hidden />
+                    </div>
+                    <div className="min-w-0 flex-1 md:w-full">
+                      <p
+                        className="font-display text-[2.35rem] font-bold leading-[0.95] tracking-[-0.04em] tabular-nums sm:text-5xl md:text-6xl lg:text-[3.35rem] xl:text-[3.65rem]"
+                        style={{ fontFeatureSettings: '"tnum" 1' }}
+                      >
+                        <span className="bg-gradient-to-br from-[hsl(var(--brand-accent))] via-[hsl(var(--brand-accent))] to-[hsl(var(--brand-accent-muted))] bg-clip-text text-transparent drop-shadow-[0_2px_24px_hsl(var(--brand-accent)/0.22)]">
+                          {number}
+                        </span>
+                      </p>
+                      <p className="mt-2 max-w-[14rem] font-sans text-[10px] font-semibold uppercase leading-tight tracking-[0.2em] text-[hsl(var(--brand-primary)/0.55)] dark:text-zinc-500 md:mx-auto md:mt-3 md:text-[11px] md:tracking-[0.22em]">
+                        {label}
+                      </p>
+                    </div>
+                  </div>
+                ))}
               </div>
-            ))}
+            </div>
           </div>
         </div>
       </section>
@@ -478,7 +412,7 @@ const Home = () => {
                 variant="default" 
                 size="lg" 
                 asChild 
-                className="bg-accent hover:bg-accent-hover text-primary font-semibold px-8"
+                className="bg-accent hover:bg-accent-hover text-primary-foreground font-semibold px-8"
               >
                 <Link href="/about">
                   Read More <ArrowRight className="ml-2" />
@@ -853,55 +787,66 @@ const Home = () => {
             ))}
           </div>
 
-          {/* Call to Action Box */}
-          <div className="relative overflow-hidden rounded-3xl border-2 border-accent/30 bg-gradient-to-br from-primary/50 to-accent/10 backdrop-blur-sm p-12 text-center animate-fade-in">
-            {/* Animated Background Pattern */}
-            <div className="absolute inset-0 opacity-10">
-              <div className="absolute inset-0" style={{
-                backgroundImage: `radial-gradient(circle at 2px 2px, hsl(var(--accent)) 1px, transparent 0)`,
-                backgroundSize: '30px 30px',
-                animation: 'gridMove 20s linear infinite'
-              }}></div>
-            </div>
+          {/* Call to Action Box — dark brand shell so text + buttons stay readable */}
+          <div className="relative overflow-hidden rounded-3xl border border-[hsl(var(--brand-accent)/0.35)] bg-gradient-to-br from-[hsl(var(--brand-primary))] via-[hsl(204_40%_22%)] to-[hsl(204_48%_32%)] p-8 text-center shadow-[0_28px_80px_-24px_hsl(var(--brand-accent)/0.45)] sm:p-12 md:p-14 animate-fade-in dark:shadow-[0_28px_80px_-24px_rgba(0,0,0,0.5)]">
+            <div
+              className="pointer-events-none absolute inset-0 opacity-[0.12]"
+              style={{
+                backgroundImage: `
+                  radial-gradient(circle at 2px 2px, hsl(var(--brand-accent) / 0.5) 1px, transparent 0),
+                  linear-gradient(135deg, transparent 40%, hsl(var(--brand-accent) / 0.06) 40%, hsl(var(--brand-accent) / 0.06) 41%, transparent 41%)
+                `,
+                backgroundSize: "28px 28px, 18px 18px",
+              }}
+              aria-hidden
+            />
+            <div
+              className="pointer-events-none absolute -right-20 top-0 h-72 w-72 rounded-full bg-[hsl(var(--brand-accent)/0.2)] blur-3xl"
+              aria-hidden
+            />
+            <div
+              className="pointer-events-none absolute -bottom-24 -left-16 h-64 w-64 rounded-full bg-[hsl(var(--brand-accent)/0.12)] blur-3xl"
+              aria-hidden
+            />
 
             <div className="relative z-10">
-              <div className="inline-block mb-6">
-                <div className="flex items-center gap-3 px-6 py-3 bg-accent/20 rounded-full border border-accent/40">
-                  <Globe className="w-5 h-5 text-accent" />
-                  <span className="text-accent font-bold">Have an Idea?</span>
+              <div className="mb-6 inline-flex">
+                <div className="flex items-center gap-2.5 rounded-full border border-white/15 bg-white/10 px-5 py-2.5 shadow-[inset_0_1px_0_0_rgba(255,255,255,0.12)] backdrop-blur-sm sm:gap-3 sm:px-6 sm:py-3">
+                  <Globe className="h-5 w-5 shrink-0 text-[hsl(var(--brand-accent))]" aria-hidden />
+                  <span className="text-sm font-bold tracking-wide text-white sm:text-base">
+                    Have an idea?
+                  </span>
                 </div>
               </div>
-              
-              <h3 className="text-3xl md:text-4xl font-bold text-white mb-4">
-                Let's Build Something Amazing Together
+
+              <h3 className="font-display text-3xl font-bold leading-[1.15] tracking-tight text-white drop-shadow-[0_2px_24px_rgba(0,0,0,0.35)] sm:text-4xl md:text-[2.75rem]">
+                Let&apos;s build something amazing together
               </h3>
-              
-              <p className="text-lg text-white/80 mb-8 max-w-2xl mx-auto">
+
+              <p className="mx-auto mt-4 max-w-2xl text-base leading-relaxed text-zinc-200/95 sm:text-lg md:mt-5">
                 Whether you have a fully formed concept or just a spark of inspiration, our team is ready to help you turn it into reality. Share your vision with us today.
               </p>
-              
-              <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <Button 
-                  variant="default" 
-                  size="lg" 
+
+              <div className="mt-8 flex flex-col items-stretch justify-center gap-3 sm:mt-10 sm:flex-row sm:items-center sm:gap-4">
+                <Button
+                  variant="default"
+                  size="lg"
                   asChild
-                  className="bg-accent hover:bg-accent-hover text-primary font-bold text-lg px-10 py-6 shadow-2xl shadow-accent/30 group border-2 border-accent/50 hover:scale-105 transition-all"
+                  className="group h-auto rounded-xl border-0 bg-white px-8 py-6 text-base font-bold text-[hsl(var(--brand-primary))] shadow-[0_12px_40px_-8px_rgba(0,0,0,0.35)] transition-all hover:scale-[1.02] hover:bg-zinc-100 sm:px-10 sm:text-lg"
                 >
                   <Link href="/contact">
-                    Share Your Idea
-                    <ArrowRight className="ml-2 group-hover:translate-x-2 transition-transform" />
+                    Share your idea
+                    <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
                   </Link>
                 </Button>
-                
-                <Button 
-                  variant="outline" 
-                  size="lg" 
+
+                <Button
+                  variant="outline"
+                  size="lg"
                   asChild
-                  className="border-2 border-white/30 text-white hover:bg-white/10 backdrop-blur-sm text-lg px-10 py-6"
+                  className="h-auto rounded-xl border-2 border-white/45 bg-transparent px-8 py-6 text-base font-bold text-white shadow-none backdrop-blur-sm transition-all hover:bg-white/10 hover:text-white sm:px-10 sm:text-lg"
                 >
-                  <Link href="/projects">
-                    View Our Work
-                  </Link>
+                  <Link href="/projects">View our work</Link>
                 </Button>
               </div>
             </div>
@@ -926,7 +871,7 @@ const Home = () => {
             variant="default" 
             size="lg" 
             asChild 
-            className="bg-accent text-primary hover:bg-accent-hover text-lg px-10 py-6 glow-intense"
+            className="bg-accent text-primary-foreground hover:bg-accent-hover text-lg px-10 py-6 glow-intense"
           >
             <Link href="/contact">
               Get Started Today <ArrowRight className="ml-2" />

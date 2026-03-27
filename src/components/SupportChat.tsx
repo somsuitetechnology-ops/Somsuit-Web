@@ -5,7 +5,6 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Card } from '@/components/ui/card';
 import { MessageCircle, X, Send, Loader2, Globe } from 'lucide-react';
-import { toast } from 'sonner';
 import {
   Select,
   SelectContent,
@@ -15,10 +14,6 @@ import {
 } from "@/components/ui/select";
 
 type Message = { role: 'user' | 'assistant'; content: string };
-
-const SUPABASE_URL = process.env.NEXT_PUBLIC_SUPABASE_URL ?? "";
-const SUPABASE_ANON_KEY = process.env.NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY ?? "";
-const CHAT_URL = SUPABASE_URL ? `${SUPABASE_URL}/functions/v1/support-chat` : "";
 
 const LANGUAGES = {
   en: { name: 'English', flag: '🇬🇧' },
@@ -99,103 +94,16 @@ export const SupportChat = () => {
     }
     
     setIsLoading(true);
-
-    let assistantContent = '';
-
-    try {
-      if (!CHAT_URL || !SUPABASE_ANON_KEY) {
-        setMessages(prev => [...prev, {
-          role: 'assistant',
-          content: 'Chat is not configured. Please contact us via the link below.',
-        }]);
-        setIsLoading(false);
-        return;
-      } else {
-      const response = await fetch(CHAT_URL, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          Authorization: `Bearer ${SUPABASE_ANON_KEY}`,
-        },
-        body: JSON.stringify({ 
-          messages: [...messages, userMessage],
-          language 
-        }),
-      });
-
-      if (!response.ok) {
-        if (response.status === 429) {
-          toast.error('Chat is experiencing high volume. Please try again in a moment.');
-          setMessages(prev => prev.slice(0, -1));
-          setIsLoading(false);
-          return;
-        }
-        if (response.status === 402) {
-          toast.error('Chat service temporarily unavailable. Please contact us directly.');
-          setMessages(prev => prev.slice(0, -1));
-          setIsLoading(false);
-          return;
-        }
-        throw new Error('Failed to send message');
-      }
-
-      const reader = response.body?.getReader();
-      const decoder = new TextDecoder();
-      let textBuffer = '';
-      let streamDone = false;
-
-      while (!streamDone && reader) {
-        const { done, value } = await reader.read();
-        if (done) break;
-
-        textBuffer += decoder.decode(value, { stream: true });
-
-        let newlineIndex: number;
-        while ((newlineIndex = textBuffer.indexOf('\n')) !== -1) {
-          let line = textBuffer.slice(0, newlineIndex);
-          textBuffer = textBuffer.slice(newlineIndex + 1);
-
-          if (line.endsWith('\r')) line = line.slice(0, -1);
-          if (line.startsWith(':') || line.trim() === '') continue;
-          if (!line.startsWith('data: ')) continue;
-
-          const jsonStr = line.slice(6).trim();
-          if (jsonStr === '[DONE]') {
-            streamDone = true;
-            break;
-          }
-
-          try {
-            const parsed = JSON.parse(jsonStr);
-            const content = parsed.choices?.[0]?.delta?.content as string | undefined;
-            
-            if (content) {
-              assistantContent += content;
-              setMessages(prev => {
-                const last = prev[prev.length - 1];
-                if (last?.role === 'assistant') {
-                  return prev.map((m, i) =>
-                    i === prev.length - 1 ? { ...m, content: assistantContent } : m
-                  );
-                }
-                return [...prev, { role: 'assistant', content: assistantContent }];
-              });
-            }
-          } catch {
-            textBuffer = line + '\n' + textBuffer;
-            break;
-          }
-        }
-      }
-      }
-
-      setIsLoading(false);
-    } catch (error) {
-      console.error('Chat error:', error);
-      toast.error('Failed to send message. Please try again.');
-      setMessages(prev => prev.slice(0, -1));
-      setIsLoading(false);
-    }
+    await new Promise((r) => setTimeout(r, 400));
+    setMessages((prev) => [
+      ...prev,
+      {
+        role: 'assistant',
+        content:
+          "Thanks for your message. Tap the button below to chat with us on WhatsApp—we'll get back to you there.",
+      },
+    ]);
+    setIsLoading(false);
   };
 
   const handleKeyPress = (e: React.KeyboardEvent) => {
@@ -355,7 +263,7 @@ export const SupportChat = () => {
                 </div>
                 
                 {/* WhatsApp Button for Human Support */}
-                {msg.role === 'assistant' && msg.content.includes('Click the button below to connect') && (
+                {msg.role === 'assistant' && /button below/i.test(msg.content) && (
                   <div className="flex justify-start mt-2 animate-fade-in">
                     <Button
                       onClick={redirectToWhatsApp}
@@ -403,7 +311,7 @@ export const SupportChat = () => {
               </Button>
             </div>
             <p className="text-xs text-muted-foreground mt-2 text-center">
-              Powered by AI • Responses may vary
+              Messages are answered by our team on WhatsApp
             </p>
           </div>
         </Card>

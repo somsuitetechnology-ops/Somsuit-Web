@@ -8,9 +8,11 @@ type ThemeProviderProps = {
   storageKey?: string
 }
 
+export type SetThemeOptions = { persist?: boolean }
+
 type ThemeProviderState = {
   theme: Theme
-  setTheme: (theme: Theme) => void
+  setTheme: (theme: Theme, options?: SetThemeOptions) => void
 }
 
 const initialState: ThemeProviderState = {
@@ -26,9 +28,19 @@ export function ThemeProvider({
   storageKey = 'moral-tech-theme',
   ...props
 }: ThemeProviderProps) {
-  const [theme, setTheme] = useState<Theme>(
-    () => (localStorage.getItem(storageKey) as Theme) || defaultTheme
-  )
+  // SSR / first paint: no localStorage — hydrate stored preference on client only.
+  const [theme, setTheme] = useState<Theme>(defaultTheme)
+
+  useEffect(() => {
+    try {
+      const stored = localStorage.getItem(storageKey) as Theme | null
+      if (stored === 'light' || stored === 'dark' || stored === 'system') {
+        setTheme(stored)
+      }
+    } catch {
+      /* private mode / SSR guard */
+    }
+  }, [storageKey])
 
   useEffect(() => {
     const root = window.document.documentElement
@@ -50,9 +62,16 @@ export function ThemeProvider({
 
   const value = {
     theme,
-    setTheme: (theme: Theme) => {
-      localStorage.setItem(storageKey, theme)
-      setTheme(theme)
+    setTheme: (next: Theme, options?: SetThemeOptions) => {
+      const persist = options?.persist !== false
+      if (persist) {
+        try {
+          localStorage.setItem(storageKey, next)
+        } catch {
+          /* ignore */
+        }
+      }
+      setTheme(next)
     },
   }
 

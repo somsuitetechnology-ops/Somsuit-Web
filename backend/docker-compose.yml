@@ -1,0 +1,15 @@
+# Optional: PostgreSQL matching .env defaults (host port 5434 → container 5432)
+services:
+  postgres:
+    image: postgres:16-alpine
+    environment:
+      POSTGRES_USER: somsuit
+      POSTGRES_PASSWORD: Somsuit@2026
+      POSTGRES_DB: somsuit_db
+    ports:
+      - "5434:5432"
+    volumes:
+      - somsuit_pg:/var/lib/postgresql/data
+
+volumes:
+  somsuit_pg:

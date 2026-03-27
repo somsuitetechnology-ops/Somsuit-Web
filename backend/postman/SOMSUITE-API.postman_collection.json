@@ -1,0 +1,263 @@
+{
+  "info": {
+    "name": "SOMSUITE Backend API",
+    "description": "Categories → Projects → Requests. Run **1 - Setup (fake data)** folder first: it saves `categoryId`, `projectId`, `requestId` into collection variables for the other requests.\n\nDefault `baseUrl`: `http://localhost:8081` (change if your `SERVER_PORT` differs).",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    { "key": "baseUrl", "value": "http://localhost:8081" },
+    { "key": "categoryId", "value": "" },
+    { "key": "projectId", "value": "" },
+    { "key": "requestId", "value": "" }
+  ],
+  "item": [
+    {
+      "name": "1 - Setup (fake data)",
+      "item": [
+        {
+          "name": "Health",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": "{{baseUrl}}/health"
+          }
+        },
+        {
+          "name": "POST Category (fake)",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "if (pm.response.code === 201) {",
+                  "  const j = pm.response.json();",
+                  "  if (j.id) pm.collectionVariables.set('categoryId', j.id);",
+                  "  console.log('categoryId =', j.id);",
+                  "}"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Enterprise Software\"\n}",
+              "options": { "raw": { "language": "json" } }
+            },
+            "url": "{{baseUrl}}/categories"
+          }
+        },
+        {
+          "name": "POST Project (fake)",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "if (pm.response.code === 201) {",
+                  "  const j = pm.response.json();",
+                  "  if (j.id) pm.collectionVariables.set('projectId', j.id);",
+                  "  console.log('projectId =', j.id);",
+                  "}"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Client Portal Revamp\",\n  \"description\": \"Rebuild the customer dashboard with React and Go API.\",\n  \"image\": \"https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800\",\n  \"categoryId\": \"{{categoryId}}\"\n}",
+              "options": { "raw": { "language": "json" } }
+            },
+            "url": "{{baseUrl}}/projects"
+          }
+        },
+        {
+          "name": "POST Request (fake)",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "if (pm.response.code === 201) {",
+                  "  const j = pm.response.json();",
+                  "  if (j.id) pm.collectionVariables.set('requestId', j.id);",
+                  "  console.log('requestId =', j.id);",
+                  "}"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"SSL certificate renewal\",\n  \"service\": \"DevOps / Hosting\",\n  \"description\": \"Renew wildcard cert before expiry; verify auto-renew on staging.\",\n  \"projectId\": \"{{projectId}}\"\n}",
+              "options": { "raw": { "language": "json" } }
+            },
+            "url": "{{baseUrl}}/requests"
+          }
+        }
+      ]
+    },
+    {
+      "name": "Public (no JWT)",
+      "item": [
+        {
+          "name": "GET public categories",
+          "request": { "method": "GET", "url": "{{baseUrl}}/public/categories" }
+        },
+        {
+          "name": "GET public projects",
+          "request": { "method": "GET", "url": "{{baseUrl}}/public/projects" }
+        },
+        {
+          "name": "POST public request",
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Public Site Visitor\",\n  \"service\": \"Development\",\n  \"description\": \"Interested in a custom module.\",\n  \"projectId\": \"{{projectId}}\",\n  \"email\": \"visitor@example.com\",\n  \"phone\": \"\",\n  \"company\": \"\"\n}",
+              "options": { "raw": { "language": "json" } }
+            },
+            "url": "{{baseUrl}}/public/requests"
+          }
+        }
+      ]
+    },
+    {
+      "name": "Categories",
+      "item": [
+        {
+          "name": "GET all categories",
+          "request": { "method": "GET", "url": "{{baseUrl}}/categories" }
+        },
+        {
+          "name": "POST category",
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Mobile Apps\"\n}",
+              "options": { "raw": { "language": "json" } }
+            },
+            "url": "{{baseUrl}}/categories"
+          }
+        },
+        {
+          "name": "PUT category",
+          "request": {
+            "method": "PUT",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Enterprise Software (updated)\"\n}",
+              "options": { "raw": { "language": "json" } }
+            },
+            "url": "{{baseUrl}}/categories/{{categoryId}}"
+          }
+        },
+        {
+          "name": "DELETE category",
+          "request": { "method": "DELETE", "url": "{{baseUrl}}/categories/{{categoryId}}" }
+        }
+      ]
+    },
+    {
+      "name": "Projects",
+      "item": [
+        {
+          "name": "GET all projects",
+          "request": { "method": "GET", "url": "{{baseUrl}}/projects" }
+        },
+        {
+          "name": "GET projects by categoryId",
+          "request": { "method": "GET", "url": "{{baseUrl}}/projects?categoryId={{categoryId}}" }
+        },
+        {
+          "name": "POST project",
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Inventory API\",\n  \"description\": \"REST API for warehouse stock levels.\",\n  \"image\": \"https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=800\",\n  \"categoryId\": \"{{categoryId}}\"\n}",
+              "options": { "raw": { "language": "json" } }
+            },
+            "url": "{{baseUrl}}/projects"
+          }
+        },
+        {
+          "name": "PUT project",
+          "request": {
+            "method": "PUT",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Client Portal Revamp v2\",\n  \"description\": \"Added SSO and audit logs.\",\n  \"image\": \"https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800\",\n  \"categoryId\": \"{{categoryId}}\"\n}",
+              "options": { "raw": { "language": "json" } }
+            },
+            "url": "{{baseUrl}}/projects/{{projectId}}"
+          }
+        },
+        {
+          "name": "DELETE project",
+          "request": { "method": "DELETE", "url": "{{baseUrl}}/projects/{{projectId}}" }
+        }
+      ]
+    },
+    {
+      "name": "Requests",
+      "item": [
+        {
+          "name": "GET all requests",
+          "request": { "method": "GET", "url": "{{baseUrl}}/requests" }
+        },
+        {
+          "name": "GET requests by projectId",
+          "request": { "method": "GET", "url": "{{baseUrl}}/requests?projectId={{projectId}}" }
+        },
+        {
+          "name": "POST request",
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Performance audit\",\n  \"service\": \"Consulting\",\n  \"description\": \"Review slow queries and caching strategy.\",\n  \"projectId\": \"{{projectId}}\"\n}",
+              "options": { "raw": { "language": "json" } }
+            },
+            "url": "{{baseUrl}}/requests"
+          }
+        },
+        {
+          "name": "PUT request",
+          "request": {
+            "method": "PUT",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"SSL certificate renewal (done)\",\n  \"service\": \"DevOps / Hosting\",\n  \"description\": \"Cert renewed; monitoring enabled.\",\n  \"projectId\": \"{{projectId}}\"\n}",
+              "options": { "raw": { "language": "json" } }
+            },
+            "url": "{{baseUrl}}/requests/{{requestId}}"
+          }
+        },
+        {
+          "name": "DELETE request",
+          "request": { "method": "DELETE", "url": "{{baseUrl}}/requests/{{requestId}}" }
+        }
+      ]
+    }
+  ]
+}

@@ -2,9 +2,7 @@ import { Card } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import Link from 'next/link';
 import { Target, Eye, Award, Users, ArrowRight } from 'lucide-react';
-import somsuiteLogo from '@/assets/somsuite.png';
-
-const moralTechLogo = somsuiteLogo;
+import { BrandLogo } from '@/components/BrandLogo';
 
 const About = () => {
   const values = [
@@ -43,8 +41,12 @@ const About = () => {
       {/* Hero Section */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-20">
         <div className="text-center mb-16">
-          <div className="float mb-8">
-            <img src={moralTechLogo} alt="Somsuite Technology" className="h-16 w-auto mx-auto opacity-20" />
+          <div className="float mb-8 flex justify-center">
+            <BrandLogo
+              width={200}
+              height={64}
+              className="h-16 w-auto opacity-20"
+            />
           </div>
           <h1 className="text-4xl md:text-5xl font-bold mb-6">
             About <span className="text-accent">Somsuite Technology</span>

@@ -1,8 +1,9 @@
 import { Moon, Sun, Monitor } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { useTheme } from '@/components/ThemeProvider'
+import { cn } from '@/lib/utils'
 
-export function ThemeToggle() {
+export function ThemeToggle({ className }: { className?: string }) {
   const { theme, setTheme } = useTheme()
 
   const toggleTheme = () => {
@@ -47,7 +48,10 @@ export function ThemeToggle() {
       size="sm"
       onClick={toggleTheme}
       title={getTooltip()}
-      className="w-9 h-9 p-0 hover:bg-accent/10 transition-colors"
+      className={cn(
+        'h-9 w-9 rounded-full p-0 text-foreground transition-colors hover:bg-[hsl(var(--brand-accent)/0.12)] hover:text-[hsl(var(--brand-accent))]',
+        className
+      )}
     >
       {getIcon()}
     </Button>

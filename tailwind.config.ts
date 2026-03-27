@@ -19,10 +19,12 @@ export default {
 		},
 		extend: {
 			fontFamily: {
-				sans: ['Poppins', 'Inter', 'sans-serif'],
-				inter: ['Inter', 'sans-serif'],
-				poppins: ['Poppins', 'sans-serif'],
-				mono: ['JetBrains Mono', 'monospace'],
+				sans: ["var(--font-sans)", "system-ui", "sans-serif"],
+				display: ["var(--font-display)", "var(--font-sans)", "system-ui", "sans-serif"],
+				serif: ["var(--font-serif)", "Georgia", "serif"],
+				inter: ["Inter", "sans-serif"],
+				poppins: ["Poppins", "sans-serif"],
+				mono: ["var(--font-mono)", "ui-monospace", "monospace"],
 			},
 			colors: {
 				border: 'hsl(var(--border))',

@@ -1,10 +1,8 @@
-import Link from 'next/link';
-import Image from 'next/image';
-import { Mail, Phone, MapPin, Github, Linkedin, Twitter } from 'lucide-react';
-import somsuiteLogo from '@/assets/somsuite.png';
+"use client";
 
-const moralTechLogo = somsuiteLogo;
-
+import Link from "next/link";
+import { BrandLogo } from "@/components/BrandLogo";
+import { Mail, Phone, MapPin, Github, Linkedin, Twitter } from "lucide-react";
 const Footer = () => {
   const currentYear = new Date().getFullYear();
 
@@ -14,7 +12,11 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           {/* Company Info */}
           <div className="col-span-1 md:col-span-2">
-            <Image src={moralTechLogo} alt="Somsuite Technology" width={180} height={48} className="h-12 w-auto mb-4 object-contain" />
+            <BrandLogo
+              width={200}
+              height={56}
+              className="mb-4 h-12 w-auto max-w-[200px] object-contain object-left"
+            />
             <p className="text-foreground-muted mb-4 max-w-md">
               Empowering businesses through innovative technology solutions. We specialize in 
               creating digital experiences that drive growth and success.
