@@ -1,3 +1,5 @@
+"use client";
+
 import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
 import { useAuth } from "@/contexts/AuthContext";
 import { getClients, createClient, updateClient, deleteClient, type Client } from "@/lib/api";
@@ -14,7 +16,7 @@ import {
 import { useToast } from "@/hooks/use-toast";
 import { ApiError } from "@/lib/api";
 import { LogOut, Plus, Pencil, Trash2 } from "lucide-react";
-import { useNavigate } from "react-router-dom";
+import { useRouter } from "next/navigation";
 import { useState } from "react";
 import {
   Dialog,
@@ -30,7 +32,7 @@ import { Label } from "@/components/ui/label";
 
 export default function AdminDashboard() {
   const { user, logout, hasRole } = useAuth();
-  const navigate = useNavigate();
+  const router = useRouter();
   const { toast } = useToast();
   const queryClient = useQueryClient();
   const [open, setOpen] = useState(false);
@@ -116,7 +118,7 @@ export default function AdminDashboard() {
 
   const handleLogout = () => {
     logout();
-    navigate("/");
+    router.push("/");
   };
 
   return (
@@ -246,7 +248,7 @@ export default function AdminDashboard() {
                         <Button
                           variant="outline"
                           size="sm"
-                          onClick={() => navigate(`/admin/clients/${c.id}`)}
+                          onClick={() => router.push(`/admin/clients/${c.id}`)}
                         >
                           View
                         </Button>

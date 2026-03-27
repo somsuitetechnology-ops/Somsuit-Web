@@ -1,4 +1,4 @@
-import Hardware from "@/pages/products/Hardware";
+import Hardware from "@/views/products/Hardware";
 
 export default function Page() {
   return <Hardware />;

@@ -1,4 +1,4 @@
-import Security from "@/pages/services/Security";
+import Security from "@/views/services/Security";
 
 export default function Page() {
   return <Security />;

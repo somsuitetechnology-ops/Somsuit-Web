@@ -40,6 +40,10 @@
     "**/*.tsx"
   ],
   "exclude": [
-    "node_modules"
+    "node_modules",
+    "src/App.tsx",
+    "src/main.tsx",
+    "src/views/admin/AdminDashboardNext.tsx",
+    "vite.config.ts"
   ]
 }

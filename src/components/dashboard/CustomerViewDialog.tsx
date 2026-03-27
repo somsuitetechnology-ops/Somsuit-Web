@@ -1,6 +1,7 @@
 "use client";
 
-import type { ComponentType, ReactNode } from "react";
+import type { ReactNode } from "react";
+import type { LucideIcon } from "lucide-react";
 import type { Customer } from "@/lib/cms-api";
 import { Button } from "@/components/ui/button";
 import {
@@ -89,7 +90,7 @@ function Section({
   title,
   children,
 }: {
-  icon: ComponentType<{ className?: string; strokeWidth?: number }>;
+  icon: LucideIcon;
   title: string;
   children: ReactNode;
 }) {

@@ -363,7 +363,7 @@ export type Employee = {
   updatedAt?: string;
 };
 
-export type EmployeeInput = Omit<Employee, "createdAt" | "updatedAt"> & {
+export type EmployeeInput = Omit<Employee, "id" | "createdAt" | "updatedAt"> & {
   id?: string;
 };
 

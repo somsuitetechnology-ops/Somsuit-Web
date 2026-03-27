@@ -1,4 +1,4 @@
-import Projects from "@/pages/Projects";
+import Projects from "@/views/Projects";
 
 export default function Page() {
   return <Projects />;

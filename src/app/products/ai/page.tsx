@@ -1,4 +1,4 @@
-import AI from "@/pages/products/AI";
+import AI from "@/views/products/AI";
 
 export default function Page() {
   return <AI />;

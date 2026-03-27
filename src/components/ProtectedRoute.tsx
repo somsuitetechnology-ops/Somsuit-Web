@@ -1,4 +1,8 @@
-import { Navigate, useLocation } from "react-router-dom";
+"use client";
+
+import { useEffect } from "react";
+import { usePathname, useRouter } from "next/navigation";
+import Link from "next/link";
 import { useAuth } from "@/contexts/AuthContext";
 
 type Role = "ADMIN" | "STAFF" | "CLIENT";
@@ -13,7 +17,14 @@ type ProtectedRouteProps = {
 
 export function ProtectedRoute({ children, roles, loginPath = "/login" }: ProtectedRouteProps) {
   const { isAuthenticated, isLoading, hasRole } = useAuth();
-  const location = useLocation();
+  const router = useRouter();
+  const pathname = usePathname();
+
+  useEffect(() => {
+    if (isLoading || isAuthenticated) return;
+    const from = encodeURIComponent(pathname);
+    router.replace(`${loginPath}?from=${from}`);
+  }, [isLoading, isAuthenticated, loginPath, pathname, router]);
 
   if (isLoading) {
     return (
@@ -24,14 +35,16 @@ export function ProtectedRoute({ children, roles, loginPath = "/login" }: Protec
   }
 
   if (!isAuthenticated) {
-    return <Navigate to={loginPath} state={{ from: location }} replace />;
+    return null;
   }
 
   if (roles && roles.length > 0 && !hasRole(...roles)) {
     return (
       <div className="flex min-h-[40vh] flex-col items-center justify-center gap-4 p-4">
         <p className="text-muted-foreground">You don&apos;t have access to this page.</p>
-        <Navigate to="/" replace />
+        <Link href="/" className="text-primary underline">
+          Return home
+        </Link>
       </div>
     );
   }

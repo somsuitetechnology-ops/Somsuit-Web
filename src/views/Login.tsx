@@ -1,5 +1,7 @@
-import { useState } from "react";
-import { useNavigate, useLocation } from "react-router-dom";
+"use client";
+
+import { useEffect, useState } from "react";
+import { useRouter, useSearchParams } from "next/navigation";
 import { useAuth } from "@/contexts/AuthContext";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -13,14 +15,19 @@ export default function Login() {
   const [password, setPassword] = useState("");
   const [loading, setLoading] = useState(false);
   const { login, isAuthenticated } = useAuth();
-  const navigate = useNavigate();
-  const location = useLocation();
+  const router = useRouter();
+  const searchParams = useSearchParams();
   const { toast } = useToast();
 
-  const from = (location.state as { from?: { pathname: string } })?.from?.pathname ?? "/";
+  const from = searchParams.get("from") || "/";
+
+  useEffect(() => {
+    if (isAuthenticated) {
+      router.replace(from);
+    }
+  }, [isAuthenticated, from, router]);
 
   if (isAuthenticated) {
-    navigate(from, { replace: true });
     return null;
   }
 
@@ -34,7 +41,7 @@ export default function Login() {
     try {
       await login(email.trim(), password);
       toast({ title: "Signed in", description: "Welcome back." });
-      navigate(from, { replace: true });
+      router.replace(from);
     } catch (err) {
       const message = err instanceof ApiError ? err.message : "Login failed. Please try again.";
       toast({ title: "Login failed", description: message, variant: "destructive" });

@@ -1,4 +1,4 @@
-import Custom from "@/pages/products/Custom";
+import Custom from "@/views/products/Custom";
 
 export default function Page() {
   return <Custom />;

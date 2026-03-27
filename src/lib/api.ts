@@ -31,9 +31,11 @@ export class ApiError extends Error {
   }
 }
 
+export type ApiRequestInit = RequestInit & { skipAuth?: boolean };
+
 async function request<T>(
   path: string,
-  options: RequestInit & { skipAuth?: boolean } = {}
+  options: ApiRequestInit = {}
 ): Promise<T> {
   const { skipAuth, ...init } = options;
   const base = getBaseUrl();
@@ -69,16 +71,16 @@ async function request<T>(
 }
 
 export const api = {
-  get: <T>(path: string, options?: RequestInit) =>
+  get: <T>(path: string, options?: ApiRequestInit) =>
     request<T>(path, { ...options, method: "GET" }),
 
-  post: <T>(path: string, data?: unknown, options?: RequestInit) =>
+  post: <T>(path: string, data?: unknown, options?: ApiRequestInit) =>
     request<T>(path, { ...options, method: "POST", body: data ? JSON.stringify(data) : undefined }),
 
-  patch: <T>(path: string, data?: unknown, options?: RequestInit) =>
+  patch: <T>(path: string, data?: unknown, options?: ApiRequestInit) =>
     request<T>(path, { ...options, method: "PATCH", body: data ? JSON.stringify(data) : undefined }),
 
-  delete: <T>(path: string, options?: RequestInit) =>
+  delete: <T>(path: string, options?: ApiRequestInit) =>
     request<T>(path, { ...options, method: "DELETE" }),
 
   request,

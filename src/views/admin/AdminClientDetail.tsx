@@ -1,4 +1,6 @@
-import { useParams, useNavigate } from "react-router-dom";
+"use client";
+
+import { useParams, useRouter } from "next/navigation";
 import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
 import {
   getClient,
@@ -43,8 +45,9 @@ import {
 } from "@/components/ui/select";
 
 export default function AdminClientDetail() {
-  const { id } = useParams<{ id: string }>();
-  const navigate = useNavigate();
+  const params = useParams();
+  const id = typeof params.id === "string" ? params.id : params.id?.[0];
+  const router = useRouter();
   const { toast } = useToast();
   const queryClient = useQueryClient();
   const [systemOpen, setSystemOpen] = useState(false);
@@ -152,7 +155,7 @@ export default function AdminClientDetail() {
   });
 
   if (!id) {
-    navigate("/admin");
+    router.push("/admin");
     return null;
   }
 
@@ -190,7 +193,7 @@ export default function AdminClientDetail() {
     <div className="min-h-screen bg-background">
       <header className="border-b bg-card">
         <div className="container flex h-14 items-center px-4">
-          <Button variant="ghost" size="sm" onClick={() => navigate("/admin")}>
+          <Button variant="ghost" size="sm" onClick={() => router.push("/admin")}>
             <ArrowLeft className="mr-2 h-4 w-4" /> Back
           </Button>
         </div>

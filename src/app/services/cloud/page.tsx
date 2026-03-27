@@ -1,4 +1,4 @@
-import CloudComputing from "@/pages/services/Cloud";
+import CloudComputing from "@/views/services/Cloud";
 
 export default function Page() {
   return <CloudComputing />;

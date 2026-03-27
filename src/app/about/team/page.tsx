@@ -1,4 +1,4 @@
-import Team from "@/pages/about/Team";
+import Team from "@/views/about/Team";
 
 export default function Page() {
   return <Team />;

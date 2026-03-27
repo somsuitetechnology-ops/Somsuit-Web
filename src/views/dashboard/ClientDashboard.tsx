@@ -1,3 +1,5 @@
+"use client";
+
 import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
 import { useAuth } from "@/contexts/AuthContext";
 import { getClientData, createSupportMessage } from "@/lib/api";
@@ -14,11 +16,12 @@ import {
 import { useToast } from "@/hooks/use-toast";
 import { ApiError } from "@/lib/api";
 import { LogOut, MessageSquare } from "lucide-react";
-import { useNavigate } from "react-router-dom";
+import { useRouter } from "next/navigation";
 import { useState } from "react";
 import {
   Dialog,
   DialogContent,
+  DialogDescription,
   DialogFooter,
   DialogHeader,
   DialogTitle,
@@ -31,7 +34,7 @@ import { Badge } from "@/components/ui/badge";
 
 export default function ClientDashboard() {
   const { user, logout } = useAuth();
-  const navigate = useNavigate();
+  const router = useRouter();
   const { toast } = useToast();
   const queryClient = useQueryClient();
   const [supportOpen, setSupportOpen] = useState(false);
@@ -62,7 +65,7 @@ export default function ClientDashboard() {
 
   const handleLogout = () => {
     logout();
-    navigate("/");
+    router.push("/");
   };
 
   const client = data?.client;

@@ -366,7 +366,7 @@ export default function DigitalContractsPage() {
       id: "catalogSvc",
       header: "Service basis",
       cell: ({ row }) => row.original.offeredService?.name ?? "—",
-      accessorFn: (row) => row.original.offeredService?.name ?? "",
+      accessorFn: (row) => row.offeredService?.name ?? "",
     },
     {
       id: "linkedProfile",
@@ -757,7 +757,6 @@ export default function DigitalContractsPage() {
                   />
                   {form.ceoSignature && (
                     <div className="flex items-center gap-3">
-                      {/* eslint-disable-next-line @next/next/no-img-element */}
                       <img
                         src={form.ceoSignature}
                         alt="CEO signature preview"
