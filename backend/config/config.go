@@ -41,8 +41,9 @@ type Config struct {
 // Load reads .env from disk (if present) and builds Config from environment variables.
 // Tries ./.env then ../.env so `go run` works from backend/ or backend/cmd/.
 func Load() (*Config, error) {
-	_ = godotenv.Load()
-	_ = godotenv.Load("../.env")
+	// Overload (not Load) so values from .env replace any broken vars from systemd EnvironmentFile
+	_ = godotenv.Overload()
+	_ = godotenv.Overload("../.env")
 
 	host := getEnv("DATABASE_HOST", "localhost")
 	port := getEnv("DATABASE_PORT", "5434")
