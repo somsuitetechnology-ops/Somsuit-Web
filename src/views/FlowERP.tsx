@@ -245,11 +245,11 @@ const AsuitERP = () => {
           {/* CTA Buttons */}
           <div className="flex flex-wrap justify-center gap-4 mb-16 animate-fade-in">
             <Button size="lg" variant="accent" className="text-lg px-8 py-6 group shadow-2xl shadow-accent/30" asChild>
-              <a href="https://wa.link/49u948" target="_blank" rel="noopener noreferrer">
+              <Link href="/contact">
                 <Play className="mr-2 w-5 h-5" />
                 Request a Demo
                 <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
-              </a>
+              </Link>
             </Button>
             <Button size="lg" variant="outline" className="text-lg px-8 py-6 border-2 border-white/30 text-white hover:bg-white/10 backdrop-blur-sm" asChild>
               <Link href="/contact">
@@ -521,11 +521,11 @@ const AsuitERP = () => {
 
           <div className="flex flex-wrap justify-center gap-4">
             <Button size="lg" variant="accent" className="text-lg px-10 py-7 group shadow-2xl shadow-accent/30" asChild>
-              <a href="https://wa.link/49u948" target="_blank" rel="noopener noreferrer">
+              <Link href="/contact">
                 <Play className="mr-2 w-5 h-5" />
                 Schedule a Demo
                 <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
-              </a>
+              </Link>
             </Button>
             <Button size="lg" variant="outline" className="text-lg px-10 py-7 border-2 border-white/30 text-white hover:bg-white/10 backdrop-blur-sm" asChild>
               <Link href="/contact">

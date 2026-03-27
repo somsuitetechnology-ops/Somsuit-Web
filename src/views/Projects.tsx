@@ -489,13 +489,7 @@ function CtaSection() {
             </a>
           </Button>
           <Button variant="glass" size="lg" asChild className="text-lg px-12 py-6">
-            <a
-              href="https://wa.link/49u948"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Chat on WhatsApp
-            </a>
+            <a href="/contact">Contact us</a>
           </Button>
         </div>
       </div>

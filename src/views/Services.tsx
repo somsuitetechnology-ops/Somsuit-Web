@@ -187,7 +187,7 @@ const services = [
 
               <div className="flex justify-end">
                 <Button variant="accent" asChild>
-                  <a href="https://wa.link/49u948" target="_blank" rel="noopener noreferrer">
+                  <a href="/contact">
                     Get Quote <ArrowRight className="ml-2 w-4 h-4" />
                   </a>
                 </Button>
