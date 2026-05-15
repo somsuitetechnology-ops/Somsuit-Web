@@ -20,6 +20,11 @@ const outfit = Outfit({
 export const metadata: Metadata = {
   title: "Somsuite Technology",
   description: "Empowering businesses through innovative technology solutions",
+  icons: {
+    icon: "/fave.png",
+    shortcut: "/fave.png",
+    apple: "/fave.png",
+  },
 };
 
 export default function RootLayout({
